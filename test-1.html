@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Sharma – Share Market Trainer & Wealth Creation Coach</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Professional warm palette (not pure black)
+============================================================ */
+:root {
+  /* Backgrounds — warm dark charcoal, NOT pure black */
+  --bg-base:    #1C1C2E;   /* deep indigo-charcoal */
+  --bg-section: #242438;   /* slightly lighter section bg */
+  --bg-card:    #2C2C45;   /* card surface */
+  --bg-card2:   #22223A;   /* alternate card */
+
+  /* Gold accent system */
+  --gold:       #D4A843;
+  --gold-light: #E8C06A;
+  --gold-dim:   #A07830;
+  --gold-bg:    rgba(212,168,67,0.10);
+  --gold-border:rgba(212,168,67,0.20);
+
+  /* Text */
+  --text-primary:  #F0EBE0;   /* warm white — easier on eyes */
+  --text-secondary:#A8A0B8;   /* muted lavender-grey */
+  --text-muted:    #7A7290;
+
+  /* Accents */
+  --green:  #2ECC71;
+  --red:    #E74C3C;
+  --purple: #6C5CE7;
+
+  /* Typography */
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'Inter', system-ui, sans-serif;
+  --ff-stat:    'Bebas Neue', sans-serif;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--ff-body);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+/* utility overrides */
+.section-py { padding-top: 5rem; padding-bottom: 5rem; }
+@media (max-width: 767px) { .section-py { padding-top: 3.5rem; padding-bottom: 3.5rem; } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .7rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: .75rem;
+}
+.eyebrow::before {
+  content: ''; display: block;
+  width: 22px; height: 2px; background: var(--gold);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700; line-height: 1.15;
+  color: #FFFFFF; letter-spacing: -.02em;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+.text-gold  { color: var(--gold) !important; }
+.bg-card    { background: var(--bg-card); }
+.bg-section { background: var(--bg-section); }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn-gold {
+  background: var(--gold); color: var(--bg-base);
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .75rem 1.8rem; border-radius: 4px;
+  border: 2px solid var(--gold);
+  transition: background .2s, transform .2s, box-shadow .2s;
+  display: inline-flex; align-items: center; gap: .45rem;
+  text-decoration: none;
+}
+.btn-gold:hover {
+  background: var(--gold-light); border-color: var(--gold-light);
+  color: var(--bg-base); transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212,168,67,.35);
+}
+.btn-outline-gold {
+  background: transparent; color: var(--gold);
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .73rem 1.8rem; border-radius: 4px;
+  border: 2px solid var(--gold-border);
+  transition: border-color .2s, color .2s, background .2s;
+  display: inline-flex; align-items: center; gap: .45rem;
+  text-decoration: none;
+}
+.btn-outline-gold:hover {
+  border-color: var(--gold); color: var(--gold);
+  background: var(--gold-bg);
+}
+.btn-dark-solid {
+  background: var(--bg-base); color: var(--text-primary);
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .75rem 1.8rem; border-radius: 4px; border: none;
+  display: inline-flex; align-items: center; gap: .45rem;
+  text-decoration: none; transition: background .2s;
+}
+.btn-dark-solid:hover { background: #111126; color: var(--text-primary); }
+
+.btn-wa {
+  background: #25D366; color: #fff;
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: .75rem 1.8rem; border-radius: 4px; border: none;
+  display: inline-flex; align-items: center; gap: .5rem;
+  text-decoration: none; transition: background .2s;
+}
+.btn-wa:hover { background: #1eb858; color: #fff; }
+
+/* ============================================================
+   TICKER
+============================================================ */
+.ticker-outer {
+  background: rgba(212,168,67,.07);
+  border-top: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
+  height: 40px; overflow: hidden;
+  display: flex; align-items: center;
+}
+.ticker-inner {
+  display: flex; white-space: nowrap;
+  animation: scroll-ticker 50s linear infinite;
+  will-change: transform;
+}
+.ticker-item {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: 0 2rem;
+  font-size: .73rem; font-weight: 500; letter-spacing: .04em;
+}
+.ticker-sym   { color: var(--gold); font-weight: 700; }
+.ticker-up    { color: var(--green); }
+.ticker-dn    { color: var(--red); }
+.ticker-sep   { color: rgba(255,255,255,.12); }
+@keyframes scroll-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+#mainNav {
+  transition: background .4s, box-shadow .4s;
+}
+#mainNav.nav-scrolled {
+  background: rgba(28,28,46,.95) !important;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 24px rgba(0,0,0,.4);
+}
+.navbar-brand {
+  font-family: var(--ff-display);
+  font-size: 1.3rem; font-weight: 700;
+  color: #fff !important; letter-spacing: -.01em;
+}
+.navbar-brand span { color: var(--gold); }
+.navbar-nav .nav-link {
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-secondary) !important;
+  padding: .5rem .9rem !important;
+  transition: color .2s;
+}
+.navbar-nav .nav-link:hover { color: var(--gold) !important; }
+.navbar-toggler {
+  border: 1.5px solid var(--gold-border);
+  color: var(--gold);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D4A843' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* mobile nav dropdown bg */
+.navbar-collapse {
+  background: var(--bg-card);
+  border-radius: 8px;
+  margin-top: .5rem;
+  padding: .5rem 0;
+}
+@media (min-width: 992px) {
+  .navbar-collapse {
+    background: transparent !important;
+    border-radius: 0; margin-top: 0; padding: 0;
+  }
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero-section {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 65% 70% at 80% 50%, rgba(108,92,231,.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 20% 30%, rgba(212,168,67,.07) 0%, transparent 60%),
+    linear-gradient(160deg, #1C1C2E 0%, #16162A 50%, #1C1825 100%);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+/* subtle grid */
+.hero-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(212,168,67,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,168,67,.03) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.hero-chart {
+  position: absolute; right: 2%; top: 50%;
+  transform: translateY(-50%);
+  width: min(520px, 48vw);
+  opacity: .12; pointer-events: none;
+}
+@media (max-width: 767px) { .hero-chart { display: none; } }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 50px;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); padding: .35rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.hero-eyebrow i { font-size: .8rem; }
+h1.hero-h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 700; line-height: 1.1;
+  color: #fff; letter-spacing: -.025em;
+  margin-bottom: .5rem;
+}
+h1.hero-h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1rem; font-weight: 300;
+  color: var(--text-secondary); line-height: 1.75;
+  max-width: 480px; margin-bottom: 2rem;
+}
+.hero-trust {
+  display: flex; flex-wrap: wrap; gap: .6rem 1.4rem;
+  margin-top: 1.5rem;
+}
+.trust-badge {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .75rem; color: var(--text-secondary);
+}
+.trust-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+
+/* ============================================================
+   STATS STRIP
+============================================================ */
+.stats-strip {
+  background: var(--gold);
+  padding: 2.5rem 0;
+}
+.stat-block {
+  text-align: center;
+  padding: 1rem;
+  border-right: 1px solid rgba(28,28,46,.2);
+}
+.stat-block:last-child { border-right: none; }
+@media (max-width: 575px) {
+  .stat-block { border-right: none; border-bottom: 1px solid rgba(28,28,46,.15); }
+  .stat-block:last-child { border-bottom: none; }
+}
+.stat-num {
+  font-family: var(--ff-stat);
+  font-size: 2.8rem; color: var(--bg-base); line-height: 1;
+}
+.stat-lbl {
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(28,28,46,.65); margin-top: .2rem;
+}
+
+/* ============================================================
+   CARDS — general
+============================================================ */
+.ms-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  transition: transform .3s var(--ease), border-color .3s, box-shadow .3s;
+  overflow: hidden;
+  height: 100%;
+}
+.ms-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,168,67,.5);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+.card-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s var(--ease);
+}
+.ms-card:hover .card-accent-bar { transform: scaleX(1); }
+
+/* ============================================================
+   ABOUT
+============================================================ */
+.about-img-wrap {
+  position: relative;
+  max-width: 400px; margin: 0 auto;
+}
+.about-img-wrap::before {
+  content: '';
+  position: absolute; top: 20px; left: -20px;
+  width: 100%; height: 100%;
+  border: 2px solid var(--gold); border-radius: 8px;
+  opacity: .25;
+}
+.about-photo-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: linear-gradient(145deg, var(--bg-card) 0%, #1A1A35 100%);
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+  position: relative; overflow: hidden;
+}
+.about-photo-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(212,168,67,.06), transparent 65%);
+}
+.tedx-badge {
+  position: absolute; bottom: -12px; right: -12px;
+  background: var(--gold); color: var(--bg-base);
+  font-size: .65rem; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .75rem 1.1rem; border-radius: 6px;
+  line-height: 1.4; text-align: center; z-index: 2;
+}
+.ms-tag {
+  display: inline-block;
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .75rem; border-radius: 3px;
+  border: 1px solid var(--gold-border); color: var(--gold);
+  margin: .2rem;
+}
+.award-row {
+  display: flex; align-items: flex-start; gap: .65rem;
+  font-size: .82rem; color: var(--text-secondary);
+  margin-bottom: .55rem;
+}
+.award-row i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+
+/* ============================================================
+   PILLARS
+============================================================ */
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  height: 100%;
+  position: relative; overflow: hidden;
+  transition: transform .3s var(--ease), border-color .3s;
+}
+.pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212,168,67,.45);
+}
+.pillar-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s var(--ease);
+}
+.pillar-card:hover::after { transform: scaleX(1); }
+.pillar-icon {
+  width: 48px; height: 48px;
+  background: var(--gold-bg); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; margin-bottom: 1rem;
+}
+.pillar-title {
+  font-size: .9rem; font-weight: 700;
+  color: #fff; margin-bottom: .4rem;
+}
+.pillar-text { font-size: .8rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ============================================================
+   PROGRAMS
+============================================================ */
+.prog-level {
+  font-size: .62rem; font-weight: 800;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .35rem;
+}
+.prog-title {
+  font-family: var(--ff-display);
+  font-size: 1.15rem; font-weight: 600;
+  color: #fff; line-height: 1.3;
+}
+.prog-icon {
+  width: 42px; height: 42px;
+  background: var(--gold-bg); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.feat-list { list-style: none; padding: 0; margin: 0; }
+.feat-list li {
+  font-size: .78rem; color: var(--text-secondary);
+  display: flex; align-items: center; gap: .55rem;
+  margin-bottom: .45rem;
+}
+.feat-list li::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0;
+}
+.prog-link {
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  display: inline-flex; align-items: center; gap: .4rem;
+  transition: gap .2s;
+}
+.prog-link:hover { gap: .8rem; color: var(--gold-light); }
+
+/* ============================================================
+   CERTIFICATIONS
+============================================================ */
+.cert-stack { border-radius: 8px; overflow: hidden; }
+.cert-row {
+  background: var(--bg-card);
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center; gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  transition: background .2s;
+}
+.cert-row:last-child { border-bottom: none; }
+.cert-row:hover { background: var(--bg-card2); }
+@media (max-width: 575px) {
+  .cert-row { grid-template-columns: 48px 1fr; gap: 1rem; padding: 1.25rem; }
+  .cert-pill-wrap { display: none; }
+}
+.cert-num {
+  font-family: var(--ff-stat); font-size: 2.6rem;
+  color: rgba(212,168,67,.18); text-align: center; line-height: 1;
+}
+.cert-lbl {
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .15rem;
+}
+.cert-name {
+  font-family: var(--ff-display);
+  font-size: 1rem; font-weight: 600; color: #fff; line-height: 1.3;
+}
+.cert-desc {
+  font-size: .75rem; color: var(--text-secondary); margin-top: .15rem;
+}
+.cert-pill {
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .75rem; border-radius: 3px; white-space: nowrap;
+}
+.pill-begin { background: rgba(46,204,113,.12); color: #2ECC71; }
+.pill-inter { background: rgba(212,168,67,.12); color: var(--gold); }
+.pill-adv   { background: rgba(108,92,231,.12); color: #A695FF; }
+
+/* ============================================================
+   TESTIMONIALS — Bootstrap carousel override
+============================================================ */
+.testi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 2rem;
+  height: 100%;
+  position: relative;
+}
+.testi-quote {
+  font-family: var(--ff-display);
+  font-size: 3.5rem; line-height: 1;
+  color: var(--gold); opacity: .2;
+  position: absolute; top: .75rem; left: 1.25rem;
+  pointer-events: none;
+}
+.testi-text {
+  font-size: .85rem; color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 1.25rem;
+  position: relative; z-index: 1;
+}
+.testi-stars { color: var(--gold); font-size: .75rem; letter-spacing: 1px; margin-bottom: .75rem; }
+.testi-author { display: flex; align-items: center; gap: .75rem; }
+.avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--bg-base); font-family: var(--ff-display);
+  font-weight: 700; font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.testi-name { font-size: .84rem; font-weight: 700; color: #fff; }
+.testi-sub  { font-size: .72rem; color: var(--text-muted); }
+.carousel-indicators [data-bs-target] {
+  width: 8px; height: 8px; border-radius: 50%; opacity: .3;
+  background: var(--gold); border: none;
+  transition: opacity .2s, width .2s;
+}
+.carousel-indicators .active { opacity: 1; width: 22px; border-radius: 4px; }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(0);
+  background-color: rgba(212,168,67,.2);
+  border-radius: 50%; padding: 1.2rem;
+  background-size: 50%;
+}
+
+/* ============================================================
+   FREE RESOURCES
+============================================================ */
+.resource-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  text-decoration: none; color: inherit;
+  transition: transform .25s, border-color .25s;
+  height: 100%;
+}
+.resource-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212,168,67,.5);
+  color: inherit;
+}
+.res-icon {
+  width: 46px; height: 46px; border-radius: 8px;
+  background: var(--gold-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.res-title { font-size: .88rem; font-weight: 700; color: #fff; margin-bottom: .2rem; }
+.res-desc  { font-size: .76rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ============================================================
+   SIP CALCULATOR
+============================================================ */
+.calc-box {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 10px; padding: 2rem;
+}
+.calc-box label {
+  display: flex; justify-content: space-between;
+  font-size: .78rem; color: var(--text-secondary);
+  font-weight: 500; margin-bottom: .45rem;
+}
+.calc-box label b { color: var(--gold); }
+.form-range::-webkit-slider-thumb  { background: var(--gold); }
+.form-range::-moz-range-thumb      { background: var(--gold); }
+.form-range::-webkit-slider-runnable-track { background: rgba(212,168,67,.2); height: 4px; }
+.calc-result {
+  background: linear-gradient(135deg, rgba(212,168,67,.1), rgba(108,92,231,.06));
+  border: 1px solid var(--gold-border);
+  border-radius: 8px; padding: 1.25rem;
+  margin-top: 1.25rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: .85rem;
+}
+.r-lbl {
+  font-size: .65rem; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--text-muted); margin-bottom: .1rem;
+}
+.r-val {
+  font-family: var(--ff-stat); font-size: 1.5rem;
+  color: var(--gold); letter-spacing: .02em;
+}
+
+/* ============================================================
+   BLOG
+============================================================ */
+.blog-img-ph {
+  height: 150px;
+  background: linear-gradient(135deg, var(--bg-section) 0%, #111126 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-muted);
+  position: relative; overflow: hidden;
+}
+.blog-img-ph::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(212,168,67,.05), transparent 60%);
+}
+.blog-tag {
+  font-size: .62rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .35rem;
+}
+.blog-title {
+  font-family: var(--ff-display);
+  font-size: 1rem; font-weight: 600;
+  color: #fff; line-height: 1.35; margin-bottom: .4rem;
+}
+.blog-date {
+  font-size: .72rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: .45rem;
+}
+.blog-date::before {
+  content: ''; display: block;
+  width: 14px; height: 1px;
+  background: var(--gold); opacity: .5;
+}
+
+/* ============================================================
+   CTA BAND
+============================================================ */
+.cta-band {
+  background: var(--gold);
+  padding: 5rem 0;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 100% at 50% 50%, rgba(255,255,255,.06), transparent);
+}
+.cta-kicker {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(28,28,46,.5); margin-bottom: .6rem;
+}
+.cta-heading {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700; color: var(--bg-base);
+  line-height: 1.1; margin-bottom: .5rem;
+}
+.cta-sub { font-size: .95rem; color: rgba(28,28,46,.6); margin-bottom: 2rem; }
+
+/* ============================================================
+   CONTACT FORM
+============================================================ */
+.contact-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 10px; padding: 2.25rem;
+}
+.contact-form-wrap .form-control,
+.contact-form-wrap .form-select {
+  background: var(--bg-section);
+  border: 1px solid var(--gold-border);
+  color: var(--text-primary);
+  border-radius: 6px;
+}
+.contact-form-wrap .form-control:focus,
+.contact-form-wrap .form-select:focus {
+  background: var(--bg-section);
+  border-color: var(--gold);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(212,168,67,.15);
+}
+.contact-form-wrap .form-control::placeholder { color: var(--text-muted); }
+.contact-form-wrap label { font-size: .78rem; font-weight: 600; color: var(--text-secondary); }
+.contact-info-item {
+  display: flex; align-items: flex-start; gap: .85rem;
+  margin-bottom: 1.25rem;
+}
+.ci-icon {
+  width: 42px; height: 42px; border-radius: 8px;
+  background: var(--gold-bg);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.1rem; flex-shrink: 0;
+}
+.ci-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--text-muted); }
+.ci-value { font-size: .88rem; color: var(--text-primary); font-weight: 500; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--gold-border);
+}
+.footer-logo {
+  font-family: var(--ff-display);
+  font-size: 1.25rem; font-weight: 700; color: #fff;
+}
+.footer-logo span { color: var(--gold); }
+.footer-tagline { font-size: .8rem; color: var(--text-secondary); line-height: 1.7; max-width: 260px; }
+.footer-heading {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.footer-links-list { list-style: none; padding: 0; margin: 0; }
+.footer-links-list li { margin-bottom: .55rem; }
+.footer-links-list a {
+  font-size: .82rem; color: var(--text-secondary);
+  text-decoration: none; transition: color .2s;
+}
+.footer-links-list a:hover { color: #fff; }
+.social-btn {
+  width: 36px; height: 36px; border-radius: 6px;
+  border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); text-decoration: none;
+  transition: border-color .2s, color .2s, background .2s;
+  font-size: .85rem;
+}
+.social-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-bg); }
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 1.25rem 0;
+}
+.footer-copy { font-size: .75rem; color: var(--text-muted); }
+.footer-legal a { font-size: .72rem; color: var(--text-muted); text-decoration: none; margin-left: 1.2rem; transition: color .2s; }
+.footer-legal a:hover { color: var(--gold); }
+
+/* ============================================================
+   FLOATING CTA
+============================================================ */
+.float-cta {
+  position: fixed; right: 1.25rem; bottom: 1.25rem;
+  z-index: 999;
+  display: flex; flex-direction: column; gap: .6rem; align-items: flex-end;
+}
+.flt-btn {
+  display: flex; align-items: center; gap: .45rem;
+  padding: .6rem 1.1rem; border-radius: 50px;
+  font-size: .76rem; font-weight: 700;
+  letter-spacing: .05em; text-decoration: none;
+  box-shadow: 0 4px 18px rgba(0,0,0,.45);
+  transition: transform .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.flt-btn:hover { transform: scale(1.05); }
+.flt-wa   { background: #25D366; color: #fff; }
+.flt-call { background: var(--gold); color: var(--bg-base); }
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+[data-reveal] {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+[data-reveal].revealed { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TICKER
+============================================================ -->
+<div class="ticker-outer">
+  <div class="ticker-inner" id="tickerEl"></div>
+</div>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav" style="background:transparent; top:40px;">
+  <div class="container">
+    <a class="navbar-brand" href="#">Maya<span>.</span>Sharma</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end align-items-center gap-2" id="navMenu">
+      <ul class="navbar-nav gap-1 me-3">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Success Stories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a href="#enroll" class="btn-gold">Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero-section" style="padding-top:120px; padding-bottom:80px;">
+  <!-- SVG chart watermark -->
+  <svg class="hero-chart" viewBox="0 0 520 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#D4A843" stop-opacity=".35"/>
+        <stop offset="100%" stop-color="#D4A843" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <line x1="0" y1="70"  x2="520" y2="70"  stroke="#D4A843" stroke-width=".5" stroke-dasharray="4 10" opacity=".3"/>
+    <line x1="0" y1="140" x2="520" y2="140" stroke="#D4A843" stroke-width=".5" stroke-dasharray="4 10" opacity=".3"/>
+    <line x1="0" y1="210" x2="520" y2="210" stroke="#D4A843" stroke-width=".5" stroke-dasharray="4 10" opacity=".3"/>
+    <polygon points="0,240 70,195 140,215 210,135 280,155 350,85 430,105 520,35 520,280 0,280" fill="url(#cg)"/>
+    <polyline points="0,240 70,195 140,215 210,135 280,155 350,85 430,105 520,35" stroke="#D4A843" stroke-width="2.5" fill="none"/>
+    <circle cx="210" cy="135" r="5" fill="#D4A843" opacity=".6"/>
+    <circle cx="350" cy="85"  r="5" fill="#D4A843" opacity=".6"/>
+    <circle cx="520" cy="35"  r="6" fill="#E8C06A"/>
+  </svg>
+
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center">
+      <div class="col-lg-7" data-reveal>
+        <div class="hero-eyebrow"><i class="bi bi-award-fill"></i> Award-Winning Wealth Coach &amp; TEDx Speaker</div>
+        <h1 class="hero-h1">Turn Markets into<br><em>Your Greatest</em><br>Asset</h1>
+        <p class="hero-sub mt-3">16+ years of real market experience. Learn stock trading, wealth creation &amp; financial literacy through practical, certification-backed programs.</p>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <a href="#enroll" class="btn-gold" id="enrollBtn"><i class="bi bi-lightning-charge-fill"></i> Join Next Batch</a>
+          <a href="#contact" class="btn-outline-gold"><i class="bi bi-calendar2-check"></i> Free Consultation</a>
+        </div>
+        <div class="hero-trust">
+          <span class="trust-badge"><span class="trust-dot"></span>1 Cr+ Women Empowered</span>
+          <span class="trust-badge"><span class="trust-dot"></span>TEDx Speaker</span>
+          <span class="trust-badge"><span class="trust-dot"></span>3 Certification Levels</span>
+          <span class="trust-badge"><span class="trust-dot"></span>Online &amp; Offline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS STRIP
+============================================================ -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <div class="stat-num" data-count="16">0</div>
+          <div class="stat-lbl">Years Experience</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <div class="stat-num" data-count="5000">0</div>
+          <div class="stat-lbl">Students Trained</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-block">
+          <div class="stat-num" data-count="3">0</div>
+          <div class="stat-lbl">Certification Levels</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-block" style="border-right:none;">
+          <div class="stat-num" data-count="6">0</div>
+          <div class="stat-lbl">Programs Offered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="section-py" id="about" style="background:var(--bg-base);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-reveal>
+        <div class="about-img-wrap">
+          <div class="about-photo-placeholder">
+            <i class="bi bi-person-bounding-box" style="font-size:3.5rem; opacity:.25; position:relative;z-index:1;"></i>
+            <span style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);position:relative;z-index:1;">Maya Sharma's Photo</span>
+          </div>
+          <div class="tedx-badge">TEDx<br>Speaker<br>2024</div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-reveal>
+        <div class="eyebrow">About Maya Sharma</div>
+        <h2 class="section-title">From Student to<br><em>Market Mentor</em></h2>
+        <p class="mt-3 mb-3" style="font-size:.92rem; color:var(--text-secondary); line-height:1.8;">
+          Maya Sharma is one of India's leading voices in financial literacy and wealth creation. With 16+ years of hands-on market experience, she has transformed the way ordinary people approach the stock market — from fear and confusion to confidence and clarity.
+        </p>
+        <div class="mb-3">
+          <span class="ms-tag">Share Market Trainer</span>
+          <span class="ms-tag">Wealth Coach</span>
+          <span class="ms-tag">TEDx Speaker</span>
+          <span class="ms-tag">Technical Analyst</span>
+        </div>
+        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.8;">
+          Her mission is to make every woman financially literate and independent — one batch at a time. She combines rigorous curriculum with real-life trading examples to deliver outcomes, not just knowledge.
+        </p>
+        <div class="mt-4">
+          <div class="award-row"><i class="bi bi-trophy-fill"></i> Women's Day Award – Financial Empowerment</div>
+          <div class="award-row"><i class="bi bi-trophy-fill"></i> Tajurba MSME Conclave Award – Best Trainer</div>
+          <div class="award-row"><i class="bi bi-mic-fill"></i> TEDx Speaker – Wealth Creation &amp; Women</div>
+        </div>
+        <div class="mt-4">
+          <a href="#about-full" class="btn-gold">Read Full Story <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section class="section-py" style="background:var(--bg-section);">
+  <div class="container">
+    <div class="row mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Why Students Choose Maya</div>
+        <h2 class="section-title">Learning That<br><em>Actually Works</em></h2>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">📈</div>
+          <div class="pillar-title">16+ Years Real Experience</div>
+          <p class="pillar-text">Every lesson comes from live market scenarios and real trades — not theory from textbooks.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">🎓</div>
+          <div class="pillar-title">Certified Programs</div>
+          <p class="pillar-text">3 levels of nationally recognised certification — from beginner to advanced wealth creator.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">👥</div>
+          <div class="pillar-title">Small Batch Mentoring</div>
+          <p class="pillar-text">Personal attention in every session. You are never just a face in the crowd.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">💻</div>
+          <div class="pillar-title">Online &amp; Offline Training</div>
+          <p class="pillar-text">Flexible learning modes to fit your schedule — attend from anywhere in India.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">👩</div>
+          <div class="pillar-title">Women-First Focus</div>
+          <p class="pillar-text">Safe, supportive, and empowering learning environment designed for women investors.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="pillar-card">
+          <div class="pillar-icon">🔄</div>
+          <div class="pillar-title">Lifetime Community</div>
+          <p class="pillar-text">Active WhatsApp &amp; alumni network for ongoing market insights and peer support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROGRAMS
+============================================================ -->
+<section class="section-py" id="programs" style="background:var(--bg-base);">
+  <div class="container">
+    <div class="row align-items-end mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Programs &amp; Courses</div>
+        <h2 class="section-title">Every Stage of<br><em>Your Journey</em></h2>
+      </div>
+      <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+        <a href="#programs-all" class="btn-outline-gold">View All Programs</a>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <div class="ms-card">
+          <div class="card-accent-bar"></div>
+          <div class="p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="prog-level">Offline Program</div>
+              <div class="prog-icon">📊</div>
+            </div>
+            <div class="prog-title mb-3">Stock Market Fundamentals</div>
+            <ul class="feat-list mb-4">
+              <li>Live market sessions</li>
+              <li>Chart &amp; technical analysis</li>
+              <li>Portfolio building basics</li>
+            </ul>
+            <a href="#" class="prog-link">Know More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <div class="ms-card">
+          <div class="card-accent-bar"></div>
+          <div class="p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="prog-level">Online Program</div>
+              <div class="prog-icon">💰</div>
+            </div>
+            <div class="prog-title mb-3">Wealth Creation Masterclass</div>
+            <ul class="feat-list mb-4">
+              <li>SIP &amp; mutual fund strategies</li>
+              <li>Risk management</li>
+              <li>Weekly live Q&amp;A</li>
+            </ul>
+            <a href="#" class="prog-link">Know More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <div class="ms-card">
+          <div class="card-accent-bar"></div>
+          <div class="p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="prog-level">Special Program</div>
+              <div class="prog-icon">👩‍💼</div>
+            </div>
+            <div class="prog-title mb-3">Women Investor Program</div>
+            <ul class="feat-list mb-4">
+              <li>Zero to confident investor</li>
+              <li>Peer learning community</li>
+              <li>Women trader case studies</li>
+            </ul>
+            <a href="#" class="prog-link">Know More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <div class="ms-card">
+          <div class="card-accent-bar"></div>
+          <div class="p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="prog-level">Corporate Training</div>
+              <div class="prog-icon">🏢</div>
+            </div>
+            <div class="prog-title mb-3">Financial Literacy for Teams</div>
+            <ul class="feat-list mb-4">
+              <li>Custom batch scheduling</li>
+              <li>Employee financial wellness</li>
+              <li>Certificate of completion</li>
+            </ul>
+            <a href="#" class="prog-link">Know More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CERTIFICATIONS
+============================================================ -->
+<section class="section-py" id="certifications" style="background:var(--bg-section);">
+  <div class="container">
+    <div class="row align-items-end mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Certification Pathways</div>
+        <h2 class="section-title">Credentials That<br><em>Open Doors</em></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center" data-reveal>
+      <div class="col-lg-9">
+        <div class="cert-stack" style="border:1px solid var(--gold-border);border-radius:8px;overflow:hidden;">
+          <div class="cert-row">
+            <div class="cert-num">01</div>
+            <div>
+              <div class="cert-lbl">Level 1 Certification</div>
+              <div class="cert-name">Certified Financial Literacy Practitioner</div>
+              <div class="cert-desc">Build a strong foundation in personal finance, budgeting, and market basics.</div>
+            </div>
+            <div class="cert-pill-wrap">
+              <span class="cert-pill pill-begin">Beginner</span>
+            </div>
+          </div>
+          <div class="cert-row">
+            <div class="cert-num">02</div>
+            <div>
+              <div class="cert-lbl">Level 2 Certification</div>
+              <div class="cert-name">Certified Stock Market Trader</div>
+              <div class="cert-desc">Master technical analysis, trading strategies, and real-time market execution.</div>
+            </div>
+            <div class="cert-pill-wrap">
+              <span class="cert-pill pill-inter">Intermediate</span>
+            </div>
+          </div>
+          <div class="cert-row">
+            <div class="cert-num">03</div>
+            <div>
+              <div class="cert-lbl">Level 3 Certification</div>
+              <div class="cert-name">Certified Wealth Creator &amp; Market Expert</div>
+              <div class="cert-desc">Advanced portfolio management, derivatives, and long-term wealth creation.</div>
+            </div>
+            <div class="cert-pill-wrap">
+              <span class="cert-pill pill-adv">Advanced</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="#certifications-full" class="btn-gold">Explore Certification Paths <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS — Bootstrap Carousel
+============================================================ -->
+<section class="section-py" id="testimonials" style="background:var(--bg-base);">
+  <div class="container">
+    <div class="row align-items-end mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Success Stories</div>
+        <h2 class="section-title">Students Who<br><em>Transformed</em></h2>
+      </div>
+      <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+        <a href="#success-all" class="btn-outline-gold">View All Stories</a>
+      </div>
+    </div>
+    <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel" data-reveal>
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">Before Maya's program I was terrified of the stock market. Within 3 months I made my first profitable trade on my own. Her teaching style is so practical.</p>
+                <div class="testi-author">
+                  <div class="avatar">P</div>
+                  <div>
+                    <div class="testi-name">Priya Nair</div>
+                    <div class="testi-sub">Women Investor Program · Mumbai</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-none d-md-block">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">The Level 2 certification gave me the confidence to quit my job and trade full-time. Maya's live market sessions are priceless — you learn by doing.</p>
+                <div class="testi-author">
+                  <div class="avatar">S</div>
+                  <div>
+                    <div class="testi-name">Sunita Mehta</div>
+                    <div class="testi-sub">Certified Stock Market Trader · Delhi</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">I attended the Anniversary Workshop with my daughter. What Maya teaches in 2 days would take years to figure out on your own. Absolutely worth it.</p>
+                <div class="testi-author">
+                  <div class="avatar">R</div>
+                  <div>
+                    <div class="testi-name">Rekha Joshi</div>
+                    <div class="testi-sub">Workshop Participant · Pune</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">As someone with a science background, finance always felt foreign. Maya broke it down with amazing clarity. I now confidently manage my own SIP portfolio.</p>
+                <div class="testi-author">
+                  <div class="avatar">A</div>
+                  <div>
+                    <div class="testi-name">Anjali Rao</div>
+                    <div class="testi-sub">Financial Literacy Practitioner · Bengaluru</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-none d-md-block">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">The corporate training Maya ran for our team was exceptional. Our employees now talk about personal finance with genuine enthusiasm. Truly transformative.</p>
+                <div class="testi-author">
+                  <div class="avatar">M</div>
+                  <div>
+                    <div class="testi-name">Meenakshi Patel</div>
+                    <div class="testi-sub">HR Manager · Corporate Training</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+              <div class="testi-card">
+                <div class="testi-quote">"</div>
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">I had zero knowledge about shares. After Maya's Women Investor Program, I started my own demat account and made 18% returns in 6 months!</p>
+                <div class="testi-author">
+                  <div class="avatar">D</div>
+                  <div>
+                    <div class="testi-name">Deepa Kulkarni</div>
+                    <div class="testi-sub">Women Investor Program · Nashik</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-indicators position-relative mt-4" style="bottom:unset;">
+        <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="1"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FREE RESOURCES
+============================================================ -->
+<section class="section-py" style="background:var(--bg-section);">
+  <div class="container">
+    <div class="row mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Free Resources</div>
+        <h2 class="section-title">Start Learning<br><em>For Free</em></h2>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <a href="#" class="resource-card">
+          <div class="res-icon">📘</div>
+          <div>
+            <div class="res-title">Free Ebook</div>
+            <div class="res-desc">10 Mistakes Every New Investor Makes — and How to Avoid Them</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <a href="#" class="resource-card">
+          <div class="res-icon">🎥</div>
+          <div>
+            <div class="res-title">Free Webinar</div>
+            <div class="res-desc">How to Start Investing with ₹500/month — Live Session Recording</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <a href="#" class="resource-card">
+          <div class="res-icon">📰</div>
+          <div>
+            <div class="res-title">Market Updates</div>
+            <div class="res-desc">Weekly market analysis and insights delivered to your WhatsApp</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-reveal>
+        <a href="#sip" class="resource-card">
+          <div class="res-icon">🔢</div>
+          <div>
+            <div class="res-title">SIP Calculator</div>
+            <div class="res-desc">See how much your monthly SIP grows over 10–30 years</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIP CALCULATOR
+============================================================ -->
+<section class="section-py" id="sip" style="background:var(--bg-base);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-reveal>
+        <div class="eyebrow">Free Tool</div>
+        <h2 class="section-title">SIP Wealth<br><em>Calculator</em></h2>
+        <p class="mt-3" style="font-size:.9rem;color:var(--text-secondary);line-height:1.8;">
+          See the incredible power of compounding. Enter your monthly investment amount and watch your wealth multiply over time.
+        </p>
+        <p class="mt-3" style="font-size:.78rem;color:var(--text-muted);">
+          This is a simplified illustration. Actual returns vary based on market performance.
+        </p>
+      </div>
+      <div class="col-lg-7" data-reveal>
+        <div class="calc-box">
+          <h5 class="text-gold mb-4" style="font-family:var(--ff-display);font-weight:600;">📊 SIP Return Estimator</h5>
+          <div class="mb-3">
+            <label class="mb-2">Monthly Investment <b id="lAmt">₹5,000</b></label>
+            <input type="range" class="form-range" id="sipAmt" min="500" max="100000" step="500" value="5000">
+          </div>
+          <div class="mb-3">
+            <label class="mb-2">Expected Annual Return <b id="lRet">12%</b></label>
+            <input type="range" class="form-range" id="sipRet" min="6" max="24" step="0.5" value="12">
+          </div>
+          <div class="mb-2">
+            <label class="mb-2">Investment Duration <b id="lYrs">10 Years</b></label>
+            <input type="range" class="form-range" id="sipYrs" min="1" max="40" step="1" value="10">
+          </div>
+          <div class="calc-result">
+            <div>
+              <div class="r-lbl">Invested Amount</div>
+              <div class="r-val" id="rInvested">₹6.0L</div>
+            </div>
+            <div>
+              <div class="r-lbl">Est. Returns</div>
+              <div class="r-val" id="rReturns">₹5.5L</div>
+            </div>
+            <div>
+              <div class="r-lbl">Total Wealth</div>
+              <div class="r-val" id="rTotal">₹11.5L</div>
+            </div>
+            <div>
+              <div class="r-lbl">Wealth Gain</div>
+              <div class="r-val" id="rGain">+92%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BLOG
+============================================================ -->
+<section class="section-py" id="blog" style="background:var(--bg-section);">
+  <div class="container">
+    <div class="row align-items-end mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Latest from the Blog</div>
+        <h2 class="section-title">Market Insights &amp;<br><em>Learning</em></h2>
+      </div>
+      <div class="col-lg-6 text-lg-end mt-3 mt-lg-0">
+        <a href="#blog-all" class="btn-outline-gold">View All Articles</a>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="ms-card">
+          <div class="blog-img-ph">📊 Market Education</div>
+          <div class="p-4">
+            <div class="blog-tag">Market Education</div>
+            <div class="blog-title">How Compounding Creates Wealth — The 8th Wonder of the World</div>
+            <div class="blog-date mt-2">August 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="ms-card">
+          <div class="blog-img-ph">💹 Financial Literacy</div>
+          <div class="p-4">
+            <div class="blog-tag">Financial Literacy</div>
+            <div class="blog-title">SIP vs Stocks: Which One Should You Start With?</div>
+            <div class="blog-date mt-2">July 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-reveal>
+        <div class="ms-card">
+          <div class="blog-img-ph">💰 Wealth Creation</div>
+          <div class="p-4">
+            <div class="blog-tag">Wealth Creation</div>
+            <div class="blog-title">5 Common Trading Mistakes That Wipe Out Beginners</div>
+            <div class="blog-date mt-2">July 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BAND
+============================================================ -->
+<section class="cta-band" id="enroll">
+  <div class="container position-relative" style="z-index:1;">
+    <div class="cta-kicker">Limited Seats Available</div>
+    <h2 class="cta-heading">Ready to Build<br>Real Wealth?</h2>
+    <p class="cta-sub">Join the next batch and start your certified financial journey today.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a href="#join" class="btn-dark-solid"><i class="bi bi-lightning-charge-fill"></i> Join Next Batch</a>
+      <a href="https://wa.me/91XXXXXXXXXX" class="btn-wa" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.528 5.855L0 24l6.335-1.526C8.07 23.443 10.01 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.844 0-3.566-.493-5.05-1.354l-.362-.213-3.752.904.937-3.653-.236-.376C2.492 15.614 2 13.865 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section class="section-py" id="contact" style="background:var(--bg-base);">
+  <div class="container">
+    <div class="row mb-5" data-reveal>
+      <div class="col-lg-6">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="section-title">Let's Start Your<br><em>Wealth Journey</em></h2>
+      </div>
+    </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5" data-reveal>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <div>
+            <div class="ci-label">Location</div>
+            <div class="ci-value">Your City, Maharashtra, India</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">hello@mayasharma.in</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon"><i class="bi bi-whatsapp"></i></div>
+          <div>
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="d-flex gap-2 mt-2">
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7" data-reveal>
+        <div class="contact-form-wrap">
+          <h5 class="text-white mb-4" style="font-family:var(--ff-display);font-weight:600;">Send a Message</h5>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="Your name">
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" placeholder="you@email.com">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Interested In</label>
+              <select class="form-select">
+                <option>Select a program...</option>
+                <option>Stock Market Fundamentals (Offline)</option>
+                <option>Wealth Creation Masterclass (Online)</option>
+                <option>Women Investor Program</option>
+                <option>Corporate Training</option>
+                <option>Anniversary Workshop</option>
+                <option>Certification Programs</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="3" placeholder="Tell us about your goals..."></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn-gold w-100" style="justify-content:center;">
+                <i class="bi bi-send-fill"></i> Send Message
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer style="padding:4rem 0 0;">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-logo mb-2">Maya<span>.</span>Sharma</div>
+        <p class="footer-tagline">Award-winning share market trainer, TEDx speaker, and wealth creation coach empowering India's women investors.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-2 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links-list">
+          <li><a href="#about">About Maya</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#testimonials">Success Stories</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 col-md-4 col-lg-3">
+        <div class="footer-heading">Programs</div>
+        <ul class="footer-links-list">
+          <li><a href="#">Offline Training</a></li>
+          <li><a href="#">Online Courses</a></li>
+          <li><a href="#">Women Investor Program</a></li>
+          <li><a href="#">Corporate Training</a></li>
+          <li><a href="#">Anniversary Workshop</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 col-md-6 col-lg-3">
+        <div class="footer-heading">Contact</div>
+        <div class="contact-info-item mb-2" style="margin-bottom:.6rem !important;">
+          <div class="ci-icon" style="width:32px;height:32px;font-size:.85rem;"><i class="bi bi-geo-alt-fill"></i></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);">Your City, Maharashtra, India</div>
+        </div>
+        <div class="contact-info-item mb-2">
+          <div class="ci-icon" style="width:32px;height:32px;font-size:.85rem;"><i class="bi bi-telephone-fill"></i></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);">+91 XXXXX XXXXX</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="ci-icon" style="width:32px;height:32px;font-size:.85rem;"><i class="bi bi-envelope-fill"></i></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);">hello@mayasharma.in</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="footer-copy">© 2026 Maya Sharma. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING BUTTONS
+============================================================ -->
+<div class="float-cta">
+  <a href="https://wa.me/91XXXXXXXXXX" class="flt-btn flt-wa" target="_blank" rel="noopener">
+    <i class="bi bi-whatsapp"></i> WhatsApp
+  </a>
+  <a href="tel:+91XXXXXXXXXX" class="flt-btn flt-call">
+    <i class="bi bi-telephone-fill"></i> Call Now
+  </a>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* NAV SCROLL */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* TICKER */
+const stocks = [
+  { sym:'NIFTY 50',    price:'24,832.65', chg:'+1.23%', up:true  },
+  { sym:'SENSEX',      price:'81,522.10', chg:'+0.89%', up:true  },
+  { sym:'RELIANCE',    price:'2,956.40',  chg:'+0.67%', up:true  },
+  { sym:'TCS',         price:'4,128.80',  chg:'-0.32%', up:false },
+  { sym:'HDFC BANK',   price:'1,674.25',  chg:'+1.55%', up:true  },
+  { sym:'INFOSYS',     price:'1,845.60',  chg:'+0.44%', up:true  },
+  { sym:'ITC',         price:'458.90',    chg:'-0.12%', up:false },
+  { sym:'WIPRO',       price:'567.35',    chg:'+0.78%', up:true  },
+  { sym:'BAJFINANCE',  price:'7,243.00',  chg:'+2.10%', up:true  },
+  { sym:'MARUTI',      price:'12,450.00', chg:'-0.55%', up:false },
+];
+(function buildTicker(){
+  const el = document.getElementById('tickerEl');
+  const items = [...stocks,...stocks];
+  el.innerHTML = items.map(s=>`
+    <div class="ticker-item">
+      <span class="ticker-sym">${s.sym}</span>
+      <span>₹${s.price}</span>
+      <span class="${s.up?'ticker-up':'ticker-dn'}">${s.chg}</span>
+      <span class="ticker-sep">|</span>
+    </div>`).join('');
+})();
+
+/* STAT COUNTER */
+function countUp(el, target) {
+  let v = 0, step = target / 55;
+  const t = setInterval(() => {
+    v += step;
+    if (v >= target) { el.textContent = target.toLocaleString()+'+'; clearInterval(t); return; }
+    el.textContent = Math.floor(v).toLocaleString()+'+';
+  }, 22);
+}
+const statsObs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    document.querySelectorAll('[data-count]').forEach(el => countUp(el, +el.dataset.count));
+    statsObs.disconnect();
+  }
+}, { threshold:.3 });
+const strip = document.querySelector('.stats-strip');
+if (strip) statsObs.observe(strip);
+
+/* SCROLL REVEAL */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('revealed'), i * 75);
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold:.08, rootMargin:'0px 0px -30px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => revObs.observe(el));
+
+/* SIP CALCULATOR */
+function fmt(n){
+  if (n>=10000000) return '₹'+(n/10000000).toFixed(2)+'Cr';
+  if (n>=100000)   return '₹'+(n/100000).toFixed(1)+'L';
+  if (n>=1000)     return '₹'+(n/1000).toFixed(1)+'K';
+  return '₹'+Math.round(n);
+}
+function calcSIP(){
+  const P = +document.getElementById('sipAmt').value;
+  const r = +document.getElementById('sipRet').value / 100 / 12;
+  const n = +document.getElementById('sipYrs').value * 12;
+  const fv = P * ((Math.pow(1+r,n)-1)/r) * (1+r);
+  const inv = P*n, ret = fv-inv;
+  document.getElementById('rInvested').textContent = fmt(inv);
+  document.getElementById('rReturns').textContent  = fmt(ret);
+  document.getElementById('rTotal').textContent    = fmt(fv);
+  document.getElementById('rGain').textContent     = '+'+Math.round((ret/inv)*100)+'%';
+  document.getElementById('lAmt').textContent  = '₹'+P.toLocaleString();
+  document.getElementById('lRet').textContent  = document.getElementById('sipRet').value+'%';
+  document.getElementById('lYrs').textContent  = document.getElementById('sipYrs').value+' Years';
+}
+['sipAmt','sipRet','sipYrs'].forEach(id => document.getElementById(id)?.addEventListener('input', calcSIP));
+calcSIP();
+
+/* ENROLL BUTTON PULSE */
+const eb = document.getElementById('enrollBtn');
+if (eb) setInterval(()=>{ eb.style.boxShadow='0 0 0 8px rgba(212,168,67,.2)'; setTimeout(()=>eb.style.boxShadow='',600); }, 3000);
+</script>
+</body>
+</html>

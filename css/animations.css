@@ -1,0 +1,120 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: none;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.hero-anim .eyebrow,
+.hero-anim h1,
+.hero-anim .hero-lead,
+.hero-anim .hero-actions,
+.hero-anim .hero-trust,
+.hero-anim .portrait-wrap,
+.hero-anim .float-card,
+.hero-anim .growth-curve path {
+  opacity: 0;
+}
+
+.hero.is-ready .eyebrow {
+  animation: fadeUp 0.7s var(--ease) 0.15s forwards;
+}
+
+.hero.is-ready h1 {
+  animation: fadeUp 0.8s var(--ease) 0.28s forwards;
+}
+
+.hero.is-ready .hero-lead {
+  animation: fadeUp 0.8s var(--ease) 0.42s forwards;
+}
+
+.hero.is-ready .hero-actions {
+  animation: fadeUp 0.8s var(--ease) 0.54s forwards;
+}
+
+.hero.is-ready .hero-trust {
+  animation: fadeUp 0.8s var(--ease) 0.66s forwards;
+}
+
+.hero.is-ready .portrait-wrap {
+  animation: fadeIn 1s var(--ease) 0.5s forwards;
+}
+
+.hero.is-ready .float-card {
+  animation: fadeUp 0.7s var(--ease) 0.9s forwards;
+}
+
+.hero.is-ready .growth-curve path {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: drawLine 1.6s var(--ease) 0.7s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.site-header {
+  animation: headerIn 0.6s var(--ease) both;
+}
+
+@keyframes headerIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.path-card img,
+.blog-cover,
+.workshop-card,
+.gallery-item,
+.cert-preview {
+  transition: transform 0.6s var(--ease);
+}
+
+.gallery-item:hover,
+.cert-card:hover .cert-preview {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .hero-anim .eyebrow,
+  .hero-anim h1,
+  .hero-anim .hero-lead,
+  .hero-anim .hero-actions,
+  .hero-anim .hero-trust,
+  .hero-anim .portrait-wrap,
+  .hero-anim .float-card,
+  .hero-anim .growth-curve path {
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .ticker-track {
+    animation: none;
+  }
+}

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maya Sharma — Financial Educator, Investor & TEDx Speaker</title>
+  <meta name="description"
+    content="Premium financial education with Maya Sharma. Learn, invest and grow your wealth through practical stock market training, certifications and mentorship.">
+  <link rel="canonical" href="https://www.example.com/">
+  <meta property="og:title" content="Maya Sharma — Learn. Invest. Grow Your Wealth.">
+  <meta property="og:description"
+    content="Practical financial education, stock market training and wealth creation strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/maya-sharma-logo.svg">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maya A. Sharma",
+    "jobTitle": "Financial Educator",
+    "description": "Financial Educator, Share Market Trainer, Investor, TEDx Speaker, Finance Professional and Mentor."
+  }
+  </script>
+</head>
+
+<body class="has-hero" data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="ticker-root"></div>
+  <div id="header-root"></div>
+
+  <main id="main">
+    <section class="hero hero-anim" aria-label="Introduction">
+      <canvas id="heroMarketBg" class="hero-market-canvas" aria-hidden="true"></canvas>
+      <div class="hero-market-scan" aria-hidden="true"></div>
+      <div class="hero-radar hero-radar-1" aria-hidden="true"></div>
+      <div class="hero-radar hero-radar-2" aria-hidden="true"></div>
+      <div class="hero-data-streams" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <svg class="hero-chart" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 140 C 120 130, 180 90, 280 100 S 460 40, 580 70 760 20, 900 50 1080 10, 1200 30" fill="none"
+          stroke="#FCC905" stroke-width="1.4" />
+        <path d="M0 150 C 140 148, 220 120, 340 128 S 520 90, 660 108 860 60, 1200 80" fill="none" stroke="#ffffff"
+          stroke-opacity="0.25" stroke-width="1" />
+      </svg>
+      <div class="container-ms hero-inner">
+        <div>
+          <p class="eyebrow scroll-reveal">Financial Educator • Investor • TEDx Speaker</p>
+          <h1 class="scroll-reveal stagger-1">
+            <span>LEARN.</span>
+            <span>INVEST.</span>
+            <span>GROW YOUR WEALTH.</span>
+          </h1>
+          <p class="hero-lead scroll-reveal stagger-2">Empowering individuals, students, women and professionals with
+            practical financial
+            education, stock market training and wealth creation strategies.</p>
+          <div class="hero-actions scroll-reveal stagger-3">
+            <a class="btn-ms btn-gold hover-lift" href="programs.html">Explore Programs</a>
+            <a class="btn-ms btn-ghost hover-lift" href="contact.html">Book Free Consultation</a>
+          </div>
+          <p class="hero-trust scroll-reveal stagger-4"><span class="stars" aria-hidden="true">★★★★★</span> Trusted by
+            Thousands of Learners</p>
+        </div>
+        <div class="hero-visual">
+          <!-- <svg class="growth-curve" viewBox="0 0 520 90" fill="none" aria-hidden="true">
+            <path d="M10 78 C 90 78, 140 60, 210 48 S 340 10, 510 8" stroke="#FCC905" stroke-width="1.6"
+              stroke-linecap="round" />
+            <text x="10" y="88" fill="#898D91" font-size="9" font-family="Inter">LEARN</text>
+            <text x="220" y="88" fill="#898D91" font-size="9" font-family="Inter">INVEST</text>
+            <text x="460" y="88" fill="#898D91" font-size="9" font-family="Inter">GROW</text>
+          </svg> -->
+          <div class="portrait-wrap scroll-reveal stagger-2">
+            <div class="portrait-frame">
+              <img src="assets/images/maya/check-4.png" alt="Maya Sharma Professional Portrait" />
+            </div>
+            <div class="float-card float-1"><strong>16+</strong><span>Years Experience</span></div>
+            <div class="float-card float-2"><strong>TEDx</strong><span>Speaker</span></div>
+            <div class="float-card float-3"><strong>Thousands</strong><span>of Learners</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="counters" aria-label="Trust statistics">
+      <div class="container-ms counter-grid">
+        <div class="counter-item scroll-reveal stagger-1">
+          <div class="counter-num" data-count="16" data-suffix="+">0</div>
+          <div class="counter-label">Years Experience</div>
+        </div>
+        <div class="counter-item scroll-reveal stagger-2">
+          <div class="counter-num" data-count="10000" data-suffix="+">0</div>
+          <div class="counter-label">Learners Trained</div>
+        </div>
+        <div class="counter-item scroll-reveal stagger-3">
+          <div class="counter-num" data-count="100" data-suffix="+">0</div>
+          <div class="counter-label">Workshops</div>
+        </div>
+        <div class="counter-item scroll-reveal stagger-4">
+          <div class="counter-num" data-count="50" data-suffix="+">0</div>
+          <div class="counter-label">Programs / Training Initiatives</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-section" id="why">
+      <div class="why-bg-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="none">
+          <path d="M0,240 C50,220 80,180 150,190 S230,120 300,140 S350,80 400,90" fill="none" stroke="var(--gold)"
+            stroke-width="1.5" stroke-opacity="0.08" />
+          <path d="M0,260 C80,240 130,220 200,200 S320,130 400,120" fill="none" stroke="var(--navy)" stroke-width="1"
+            stroke-opacity="0.04" />
+        </svg>
+      </div>
+      <div class="container-ms why-editorial">
+        <div class="why-intro scroll-reveal">
+          <p class="eyebrow" style="color: var(--navy);">Why Learn With Maya Sharma?</p>
+          <h2>Financial education should be practical, not complicated.</h2>
+          <p class="muted">Maya teaches money, markets and investing in language people can actually use whether they
+            are students, working professionals or first-time investors.</p>
+        </div>
+        <div class="why-principles">
+          <div class="why-principle active hover-lift scroll-reveal stagger-1" tabindex="0">
+            <div class="why-number">01</div>
+            <div class="why-content">
+              <h3>Practical Learning</h3>
+              <p>Concepts explained through real-world money decisions, not jargon.</p>
+            </div>
+          </div>
+          <div class="why-principle hover-lift scroll-reveal stagger-2" tabindex="0">
+            <div class="why-number">02</div>
+            <div class="why-content">
+              <h3>Real Market Experience</h3>
+              <p>Learning shaped by investing, markets and years of professional practice.</p>
+            </div>
+          </div>
+          <div class="why-principle hover-lift scroll-reveal stagger-3" tabindex="0">
+            <div class="why-number">03</div>
+            <div class="why-content">
+              <h3>Beginner Friendly</h3>
+              <p>Designed so first-time learners can start with clarity and confidence.</p>
+            </div>
+          </div>
+          <div class="why-principle hover-lift scroll-reveal stagger-4" tabindex="0">
+            <div class="why-number">04</div>
+            <div class="why-content">
+              <h3>Live Mentorship</h3>
+              <p>Guided learning with space to ask, apply and refine.</p>
+            </div>
+          </div>
+          <div class="why-principle hover-lift scroll-reveal stagger-5" tabindex="0">
+            <div class="why-number">05</div>
+            <div class="why-content">
+              <h3>Online + Offline Training</h3>
+              <p>Choose the format that fits your life and learning style.</p>
+            </div>
+          </div>
+          <div class="why-principle hover-lift scroll-reveal stagger-6" tabindex="0">
+            <div class="why-number">06</div>
+            <div class="why-content">
+              <h3>Lifetime Learning Support</h3>
+              <p>Education that continues after the classroom session ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-off" id="about">
+      <div class="gold-arc" style="width:260px;height:260px;left:-80px;top:40px;" aria-hidden="true"></div>
+      <div class="container-ms about-grid">
+        <div class="about-photo scroll-reveal">
+          <div class="about-photo-wrap">
+            <img src="assets/images/maya/trusted-guidance-maya.JPG" alt="Maya Sharma Professional Photo" loading="lazy">
+          </div>
+        </div>
+        <div class="scroll-reveal stagger-1">
+          <p class="eyebrow" style="color: var(--navy);">Meet Maya Sharma</p>
+          <h2>Making Financial Education Simple, Practical &amp; Accessible.</h2>
+          <div class="about-roles">
+            <span class="role-chip">Financial Educator</span>
+            <span class="role-chip">Share Market Trainer</span>
+            <span class="role-chip">Investor</span>
+            <span class="role-chip">TEDx Speaker</span>
+            <span class="role-chip">Finance Professional</span>
+            <span class="role-chip">Mentor</span>
+          </div>
+          <p>Maya A. Sharma is a Financial Educator, Share Market Trainer, Investor, TEDx Speaker, Finance Professional
+            and Mentor dedicated to making financial literacy, investing and stock market education simple, practical
+            and accessible.</p>
+
+          <a class="btn-ms btn-gold hover-lift" href="about.html">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="awards">
+      <div class="gold-arc" style="width:380px;height:380px;right:-120px;top:-40px;" aria-hidden="true"></div>
+      <div class="container-ms">
+        <p class="eyebrow scroll-reveal">Awards & Recognition</p>
+        <h2 class="scroll-reveal stagger-1">Recognised for excellence.<br>Driven by purpose.</h2>
+        <div class="swiper awards-swiper scroll-reveal stagger-2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="award-card" data-award="0" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/awards-maya-gpect.jpg" alt="TEDx GPCET 2024"
+                  loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="1" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/award-maya-sharma.jpg"
+                  alt="TED Talk Mastery & Train The Trainer" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="2" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/speaker-mayasharma.jpg"
+                  alt="Super Speaker 2000 — Recognition of Excellence" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="3" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/maya-awards-tedx.jpg"
+                  alt="Zee Business Recognition" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="4" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/awards-mayasharma-suresh.jpg"
+                  alt="CAFÉ PEHCHAAN 5.0 — Indcap Rising Star Award" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="6" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/award-maya-education-reg.jpg"
+                  alt="Financial Gurukul Certifications" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="award-card" data-award="7" tabindex="0">
+                <img class="award-card-img" src="assets/images/awards/tedx-award-maya.JPG"
+                  alt="Winning Stree 2023 — Strees of Excellence" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tedx-block" id="tedx">
+          <div class="scroll-reveal stagger-1">
+            <p class="eyebrow">TEDx</p>
+            <h2>Finance should be a life skill, not a luxury.</h2>
+            <p>Watch Maya Sharma’s inspiring TEDx Talk on financial awareness and long-term wealth creation.</p>
+            <a class="btn-ms btn-gold hover-lift" href="https://www.youtube.com/watch?v=fhAZN8oZAYM" target="_blank"
+              rel="noopener">Watch TEDx Talk</a>
+          </div>
+          <div class="video-thumb scroll-reveal stagger-2 hover-lift"
+            data-video-src="https://www.youtube.com/watch?v=fhAZN8oZAYM" data-video-title="TEDx Talk"
+            data-video-caption="TEDx GPCET 2024 — Finance Should Be a Life Skill, Not a Luxury."
+            style="background-image: url('assets/images/awards/tedx-maya.jpg'); background-size: cover; background-position: center;">
+            <button class="play-btn" type="button" aria-label="Watch TEDx video"><i
+                class="bi bi-play-fill"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section section-off" id="paths">
+      <div class="container-ms">
+        <p class="eyebrow scroll-reveal" style="color: var(--navy);">Programs</p>
+        <h2 class="scroll-reveal stagger-1">Choose your financial learning path</h2>
+        <div class="path-grid">
+          <article class="path-card scroll-reveal stagger-2 hover-lift">
+            <div class="path-num">01 FOUNDATION</div>
+            <div class="path-level">Beginner</div>
+            <h3>Financial Literacy Foundation</h3>
+            <p>Build money habits, savings discipline and a clear picture of personal finance.</p>
+            <p><strong>Ideal for:</strong> Students and first-time learners</p>
+            <a class="btn-ms btn-outline" href="programs.html#programs">View Program</a>
+          </article>
+          <article class="path-card scroll-reveal stagger-3 hover-lift">
+            <div class="path-num">02 TRADING</div>
+            <div class="path-level">Intermediate</div>
+            <h3>Stock Market Essentials</h3>
+            <p>Understand markets, instruments and a structured approach to trading education.</p>
+            <p><strong>Ideal for:</strong> Curious investors and working professionals</p>
+            <a class="btn-ms btn-outline" href="programs.html#programs">View Program</a>
+          </article>
+          <article class="path-card scroll-reveal stagger-4 hover-lift">
+            <div class="path-num">03 WEALTH</div>
+            <div class="path-level">Advanced</div>
+            <h3>Wealth Creation Masterclass</h3>
+            <p>Connect investing, planning and long-term wealth thinking into one learning path.</p>
+            <p><strong>Ideal for:</strong> Learners ready for deeper strategy</p>
+            <a class="btn-ms btn-outline" href="programs.html#programs">View Program</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container-ms">
+        <div class="cert-section-header">
+          <div class="scroll-reveal stagger-1">
+            <p class="eyebrow" style="color: var(--navy);">Credentials</p>
+            <h2>Credentials that build confidence.</h2>
+            <p class="cert-subtext">Industry-focused certifications backed by practical learning and real learner
+              outcomes.</p>
+          </div>
+        </div>
+
+        <!-- Certificate Carousel -->
+        <div class="swiper cert-swiper scroll-reveal stagger-2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="cert-slide-card" data-gallery data-title="Certificate in Basic Analysis"
+                data-src="assets/images/student-certificates/basic-analysis-certicifate.png" tabindex="0">
+                <div class="cert-slide-img">
+                  <img src="assets/images/student-certificates/basic-analysis-certicifate.png"
+                    alt="Certificate in Basic Analysis" loading="lazy">
+                </div>
+                <p class="cert-slide-label">Certificate in Basic Analysis</p>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <article class="cert-slide-card" data-gallery data-title="Certificate in Basic &amp; Technical Analysis"
+                data-src="assets/images/student-certificates/basic-and-techincal.png" tabindex="0">
+                <div class="cert-slide-img">
+                  <img src="assets/images/student-certificates/basic-and-techincal.png"
+                    alt="Certificate in Basic &amp; Technical Analysis" loading="lazy">
+                </div>
+                <p class="cert-slide-label">Certificate in Basic &amp; Technical Analysis</p>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <article class="cert-slide-card" data-gallery
+                data-title="Certificate in Basic, Technical &amp; Fundamentals"
+                data-src="assets/images/student-certificates/basic-techincal-fundamentals.png" tabindex="0">
+                <div class="cert-slide-img">
+                  <img src="assets/images/student-certificates/basic-techincal-fundamentals.png"
+                    alt="Certificate in Basic, Technical &amp; Fundamentals" loading="lazy">
+                </div>
+                <p class="cert-slide-label">Certificate in Basic, Technical &amp; Fundamentals</p>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <article class="cert-slide-card" data-gallery
+                data-title="Certificate in Basics, Fundamentals &amp; Technical Analysis"
+                data-src="assets/images/student-certificates/basics-fundamandals-techincal-analysis.png" tabindex="0">
+                <div class="cert-slide-img">
+                  <img src="assets/images/student-certificates/basics-fundamandals-techincal-analysis.png"
+                    alt="Certificate in Basics, Fundamentals &amp; Technical Analysis" loading="lazy">
+                </div>
+                <p class="cert-slide-label">Certificate in Basics, Fundamentals Analysis</p>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <article class="cert-slide-card" data-gallery data-title="Certificate in Technical Analysis"
+                data-src="assets/images/student-certificates/technical-analysis-certificate.png" tabindex="0">
+                <div class="cert-slide-img">
+                  <img src="assets/images/student-certificates/technical-analysis-certificate.png"
+                    alt="Certificate in Technical Analysis" loading="lazy">
+                </div>
+                <p class="cert-slide-label">Certificate in Technical Analysis</p>
+              </article>
+            </div>
+          </div>
+          <div class="swiper-pagination cert-pagination"></div>
+          <div class="swiper-button-prev cert-button-prev" aria-label="Previous slide"></div>
+          <div class="swiper-button-next cert-button-next" aria-label="Next slide"></div>
+        </div>
+      </div>
+
+      <!-- Real Learner Photos Marquee -->
+      <div class="learner-marquee-wrap scroll-reveal stagger-2">
+        <h3 class="learner-marquee-label">Real Learners. Real Achievements.</h3>
+        <div class="learner-marquee" aria-label="Real learner photos">
+          <div class="learner-marquee-track">
+            <img src="assets/images/student-certificates/maya-sharma-certificate.JPG"
+              alt="Maya Sharma student certificate" loading="lazy">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-1.JPG"
+              alt="Student certificate achievement" loading="lazy">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-2.JPG"
+              alt="Student certificate achievement" loading="lazy">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-3.JPG"
+              alt="Student certificate achievement" loading="lazy">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-4.jpg"
+              alt="Student certificate achievement" loading="lazy">
+            <!-- Duplicates for seamless infinite loop -->
+            <img src="assets/images/student-certificates/maya-sharma-certificate.JPG"
+              alt="Maya Sharma student certificate" loading="lazy" aria-hidden="true">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-1.JPG"
+              alt="Student certificate achievement" loading="lazy" aria-hidden="true">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-2.JPG"
+              alt="Student certificate achievement" loading="lazy" aria-hidden="true">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-3.JPG"
+              alt="Student certificate achievement" loading="lazy" aria-hidden="true">
+            <img src="assets/images/student-certificates/maya-sharma-certificate-4.jpg"
+              alt="Student certificate achievement" loading="lazy" aria-hidden="true">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section-dark" id="videos">
+      <div class="gold-arc" style="width:300px;height:300px;right:-80px;top:20px;" aria-hidden="true"></div>
+      <div class="container-ms">
+        <p class="eyebrow scroll-reveal" style="color: var(--gold);">Voices</p>
+        <h2 class="scroll-reveal stagger-1">Real people. Real learning journeys.</h2>
+        <div class="swiper video-swiper scroll-reveal stagger-2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <article class="video-card hover-lift"
+                data-video-src="assets/videos/learning-disciplined-investing-trans.mp4"
+                data-video-title="Learning Disciplined Investing"
+                data-video-caption="Student Journey — Stock Market Essentials">
+                <div class="video-thumb"
+                  style="background-image: url('assets/videos/learning-testimonial-thumb.webp'); background-size: cover; background-position: center;">
+                  <button class="play-btn" type="button" aria-label="Play video"><i
+                      class="bi bi-play-fill"></i></button>
+                </div>
+                <div class="meta">
+                  <div class="name">Student Journey</div>
+                  <div class="prog">Stock Market Essentials</div>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="video-card hover-lift" data-video-src="assets/videos/real-effort-real-results-market.mp4"
+                data-video-title="Real Effort, Real Results"
+                data-video-caption="Student Journey — Wealth Creation Masterclass">
+                <div class="video-thumb"
+                  style="background-image: url('assets/videos/real-testimonial-thumb.webp'); background-size: cover; background-position: center;">
+                  <button class="play-btn" type="button" aria-label="Play video"><i
+                      class="bi bi-play-fill"></i></button>
+                </div>
+                <div class="meta">
+                  <div class="name">Student Journey</div>
+                  <div class="prog">Wealth Creation Masterclass</div>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="video-card hover-lift" data-video-src="assets/videos/real-results-real-growth.mp4"
+                data-video-title="Real Results, Real Growth"
+                data-video-caption="Student Journey — Financial Literacy Foundation">
+                <div class="video-thumb"
+                  style="background-image: url('assets/videos/real-groth-testimonial-thumb.webp'); background-size: cover; background-position: center;">
+                  <button class="play-btn" type="button" aria-label="Play video"><i
+                      class="bi bi-play-fill"></i></button>
+                </div>
+                <div class="meta">
+                  <div class="name">Student Journey</div>
+                  <div class="prog">Financial Literacy Foundation</div>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-slide">
+              <article class="video-card hover-lift" data-video-src="assets/videos/smart-guidance-strong-results.mp4"
+                data-video-title="Smart Guidance, Strong Results"
+                data-video-caption="Student Journey — Growth Engine Mastery">
+                <div class="video-thumb"
+                  style="background-image: url('assets/videos/smart-guidacne-testimonial-thumb.webp'); background-size: cover; background-position: center;">
+                  <button class="play-btn" type="button" aria-label="Play video"><i
+                      class="bi bi-play-fill"></i></button>
+                </div>
+                <div class="meta">
+                  <div class="name">Student Journey</div>
+                  <div class="prog">Growth Engine Mastery</div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- Swiper Pagination -->
+          <div class="swiper-pagination video-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-off women" id="women">
+      <div class="gold-arc" style="width:300px;height:300px;left:-90px;bottom:-80px;" aria-hidden="true"></div>
+      <div class="container-ms women-grid">
+        <div class="scroll-reveal stagger-1">
+          <p class="eyebrow" style="color: var(--navy);">Women Investor Program</p>
+          <h2 style="color: var(--navy-dark);">Financial independence starts with financial confidence.</h2>
+          <p style="color: #4A5568; font-size: 16px; line-height: 1.6;">Specially designed for women who want to
+            understand investing, wealth creation, retirement planning and financial security.</p>
+          <div class="women-program-steps">
+            <div class="step-box hover-lift">
+              <div class="step-badge">01</div>
+              <div class="step-content">
+                <h4 class="step-title">Learn</h4>
+                <p class="step-desc">Stock Market &amp; Financial Literacy</p>
+              </div>
+            </div>
+
+            <div class="step-box hover-lift">
+              <div class="step-badge">02</div>
+              <div class="step-content">
+                <h4 class="step-title">Invest</h4>
+                <p class="step-desc">SIPs, Equity &amp; Mutual Funds</p>
+              </div>
+            </div>
+
+            <div class="step-box hover-lift">
+              <div class="step-badge">03</div>
+              <div class="step-content">
+                <h4 class="step-title">Plan</h4>
+                <p class="step-desc">Retirement &amp; Tax Security</p>
+              </div>
+            </div>
+
+            <div class="step-box hover-lift">
+              <div class="step-badge">04</div>
+              <div class="step-content">
+                <h4 class="step-title">Grow</h4>
+                <p class="step-desc">Passive Income &amp; Wealth</p>
+              </div>
+            </div>
+          </div>
+          <a class="btn-ms btn-gold hover-lift" href="contact.html">Join Women Investor Program</a>
+        </div>
+        <div class="women-visual-wrap scroll-reveal stagger-2">
+          <div class="women-visual">
+            <img src="assets/images/maya/ms-maya-sharma.JPG" alt="Maya Sharma Women Investor Program" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Testimonials Carousel Section -->
+    <section class="section section-dark testimonials-section" id="testimonials">
+      <div class="gold-arc" style="width:360px;height:360px;right:-100px;top:20px;" aria-hidden="true"></div>
+      <div class="container-ms">
+        <div class="testimonials-header text-center">
+          <p class="eyebrow scroll-reveal">TESTIMONIALS</p>
+          <h2 class="scroll-reveal stagger-1">What Our Learners Say</h2>
+          <p class="subtitle scroll-reveal stagger-2">Real experiences from learners and members of the M.S. Financials
+            community.</p>
+        </div>
+
+        <div class="testimonials-carousel-wrap scroll-reveal stagger-3">
+          <div class="swiper testimonials-swiper">
+            <div class="swiper-wrapper">
+
+              <!-- 1. A.P. Bindu -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Hello all friends, we all are passionate about equity markets. Learning
+                    technical analysis is an integral part of your learning if you want a better hold on your skills.
+                    For learning technical analysis and reading charts, we have Maya Sharma in CAFÉ.<br><br>She is an
+                    excellent teacher and an expert. She can train you very well. I myself learnt technical analysis
+                    from her, from basics to advanced concepts."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">AP</div>
+                    <div class="author-info">
+                      <div class="author-name">A.P. Bindu</div>
+                      <div class="author-tag">Personal Khaitan • Cafe New Alipore</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Pramila -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Dear Maya ji,<br>Thanks for such a wonderful and insightful Share Market
+                    Workshop. Your guidance made learning simple, inspiring, and truly worthwhile.<br><br>Grateful for
+                    your time, knowledge, and generosity. Wishing you continued success and many more inspiring sessions
+                    ahead."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">PR</div>
+                    <div class="author-info">
+                      <div class="author-name">Pramila</div>
+                      <div class="author-tag">Café New Alipore</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. A. Revio -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"It's my warm pleasure to attend your class and thanks for the valuable time and
+                    knowledge that you shared.<br><br>If I could have your attention, I would like to know a little more
+                    details about ordinary.<br><br>Hope all your investment and trading decisions help you achieve
+                    maximum profit in coming years."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">AR</div>
+                    <div class="author-info">
+                      <div class="author-name">A. Revio</div>
+                      <div class="author-tag">Pune</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Bimal Agarwal -->
+              <!-- <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Maya ji is really Mayavi. Her prediction is right again."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">BA</div>
+                    <div class="author-info">
+                      <div class="author-name">Bimal Agarwal</div>
+                      <div class="author-tag">Community Member</div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- 5. Ur’s Toothfully -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Thank you, Mam. You have made so much difference to my financial journey. I have
+                    made ₹15K from a single trade the day before yesterday.<br><br>Enjoyed every bit of the little step
+                    towards my goal. Love you, Mam.<br><br>Loads of love."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">UT</div>
+                    <div class="author-info">
+                      <div class="author-name">Ur’s Toothfully</div>
+                      <div class="author-tag">Active Trader &amp; Student</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. GBC Aruna -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Hello everyone,<br>I would like to say thanks to M.S. Financials (Maya ji). She
+                    taught me an advanced course in trading 6–7 months ago or more than that. Now I am earning
+                    approximately ₹20,000/month. It’s my second passive income.<br><br>Thank you GBC and Maya ji."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">GA</div>
+                    <div class="author-info">
+                      <div class="author-name">GBC Aruna</div>
+                      <div class="author-tag">GBC Member</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. GBC Maitreyi -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Good Morning GBC family.<br><br>Would like to acknowledge M.S. Financials’
+                    regular contribution to my passive income through share trading. At least ₹2,000–₹3,000 per month,
+                    often more, has been generated regularly and credited to my savings account. A great help and
+                    support for me in these trying times when huge medical expenses of self and family members have been
+                    continuously creating financial setbacks.<br><br>Thank you Maya Sharma and team of M.S. Financials."
+                  </p>
+                  <div class="card-author">
+                    <div class="avatar-badge">GM</div>
+                    <div class="author-info">
+                      <div class="author-name">GBC Maitreyi</div>
+                      <div class="author-tag">GBC Member</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Sheetal Agarwal -->
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Girls, we all should attend Maya’s Monday sessions. She is just amazing.
+                    Grateful to her that she is a part of our GBC."</p>
+                  <div class="card-author">
+                    <div class="avatar-badge">SA</div>
+                    <div class="author-info">
+                      <div class="author-name">Sheetal Agarwal</div>
+                      <div class="author-tag">GBC Member</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. Maitreyi De (FEATURED LONG TESTIMONIAL) -->
+              <div class="swiper-slide">
+                <div class="testimonial-card testimonial-featured">
+                  <div class="featured-tag"><i class="bi bi-star-fill"></i> Featured Story</div>
+                  <div class="card-top">
+                    <div class="card-quote"><i class="bi bi-quote"></i></div>
+                    <div class="card-rating">★★★★★</div>
+                  </div>
+                  <p class="card-text">"Maya Sharma of M.S. Financials has been guiding my financial planning for the
+                    past nine months. She has helped streamline my investments into PPF, MF, LIFE &amp; HEALTH
+                    INSURANCE. I was asked to invest around ₹1,00,000/- for share trading and every 3 months some
+                    reasonable income has been generated..."</p>
+                  <button class="read-full-btn btn-ms btn-gold" type="button" data-bs-toggle="modal"
+                    data-bs-target="#maitreyiModal">
+                    Read Full Testimonial →
+                  </button>
+                  <div class="card-author">
+                    <div class="avatar-badge avatar-gold">MD</div>
+                    <div class="author-info">
+                      <div class="author-name">Maitreyi De</div>
+                      <div class="author-tag">Financial Planning Client &amp; GBC Member</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Controls -->
+            <div class="testimonials-controls">
+              <div class="swiper-button-prev testimonials-button-prev" aria-label="Previous testimonial"></div>
+              <div class="swiper-pagination testimonials-pagination"></div>
+              <div class="swiper-button-next testimonials-button-next" aria-label="Next testimonial"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for Featured Testimonial (Maitreyi De) -->
+    <div class="modal fade" id="maitreyiModal" tabindex="-1" aria-labelledby="maitreyiModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content testimonial-modal-content">
+          <div class="modal-header">
+            <div class="d-flex align-items-center gap-3">
+              <div class="avatar-badge avatar-gold">MD</div>
+              <div>
+                <h5 class="modal-title" id="maitreyiModalLabel">Maitreyi De</h5>
+                <p class="modal-subtitle mb-0">Financial Planning Client &amp; GBC Member</p>
+              </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card-rating text-gold mb-3" style="color: var(--gold);">★★★★★</div>
+            <div class="full-testimonial-text">
+              "Maya Sharma of M.S. Financials has been guiding my financial planning for the past nine months. She has
+              helped streamline my investments into PPF, MF, LIFE &amp; HEALTH INSURANCE. I was asked to invest around
+              ₹1,00,000/- for share trading and every 3 months some reasonable income has been generated that has been
+              around ₹3,000/-, ₹6,000/- and ₹9,000/-.
+              <br><br>
+              These amounts may not appear to be much, yet it has been a great support in this pandemic when consultancy
+              fees has been unduly compromised by even regular clients, some of whom we have been associated with for
+              more than a decade.
+              <br><br>
+              Thank you dear Maya ji for being a genuinely honest instrument of Divine and guiding with such clarity.
+              You are an awesome asset for any organisation as well as in case of individual financial portfolio
+              creation.
+              <br><br>
+              I recommend services of M.S. Financials for everyone and anyone, whether you are struggling with your
+              finances like me or need a little support to your professionally generated income.
+              <br><br>
+              Maya ji to me is a representative of Mata Lakshmi ushering abundance in wealth! Jai Divine Maiyya, Jai ho
+              M.S. Financials! Long live GBC for helping forge such useful connections!"
+            </div>
+            <div class="modal-signature">— Maitreyi De</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-dark final-cta">
+      <div class="gold-arc" aria-hidden="true"></div>
+      <div class="container-ms">
+        <p class="eyebrow scroll-reveal">Begin</p>
+        <h2 class="scroll-reveal stagger-1">Your financial journey starts with one decision.</h2>
+        <p class="scroll-reveal stagger-2">Learn. Invest. Grow with confidence.</p>
+        <div class="actions scroll-reveal stagger-3">
+          <a class="btn-ms btn-gold hover-lift" href="programs.html">Explore Programs</a>
+          <a class="btn-ms btn-ghost hover-lift" href="contact.html">Book Free Consultation</a>
+          <a class="btn-ms btn-ghost hover-lift" href="https://wa.me/919831352591" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/hero-market-bg.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

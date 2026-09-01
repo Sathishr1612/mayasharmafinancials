@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Financial Calculators — Maya Sharma</title>
+  <meta name="description" content="Ten educational financial calculators for SIP, goal planning, retirement, trading and loans. Illustrative only — not financial advice.">
+  <link rel="canonical" href="https://www.example.com/calculators.html">
+  <meta property="og:title" content="Financial Calculators — Maya Sharma">
+  <meta property="og:description" content="Educational calculators for investing, retirement, trading and loans.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body data-page="calculators">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="ticker-root"></div>
+  <div id="header-root"></div>
+  <main id="main">
+    <header class="page-hero">
+      <div class="gold-arc" style="width:320px;height:320px;right:-60px;top:-80px;" aria-hidden="true"></div>
+      <div class="container-ms">
+        <p class="eyebrow">Tools</p>
+        <h1>Financial Calculators</h1>
+        <p>Ten educational calculators for investing, retirement, trading and loans. Illustrative only — not financial advice.</p>
+      </div>
+    </header>
+
+    <section class="section" id="calculators">
+      <div class="container-ms">
+        <div class="calc-layout">
+          <nav class="calc-nav" aria-label="Calculator list">
+            <div class="calc-cat">Investing</div>
+            <button type="button" class="active" data-target="calc-sip">SIP Calculator</button>
+            <button type="button" data-target="calc-goal">Goal Calculator</button>
+            <button type="button" data-target="calc-lumpsum">Lumpsum FV</button>
+            <button type="button" data-target="calc-goallump">Goal Lumpsum</button>
+            <button type="button" data-target="calc-cagr">CAGR</button>
+            <div class="calc-cat">Retirement</div>
+            <button type="button" data-target="calc-retire">Retirement Planning</button>
+            <button type="button" data-target="calc-swp">SWP</button>
+            <div class="calc-cat">Trading</div>
+            <button type="button" data-target="calc-pos">Position Sizing</button>
+            <div class="calc-cat">Loans</div>
+            <button type="button" data-target="calc-car">Car Loan</button>
+            <button type="button" data-target="calc-emi">EMI Calculator</button>
+          </nav>
+          <div>
+            <div class="calc-panel active" id="calc-sip" data-calc="sip">
+              <h3>SIP Calculator</h3>
+              <div class="calc-grid">
+                <form>
+                  <div class="field"><label for="sip-m">Monthly investment (₹)</label><input id="sip-m" data-k="monthly" type="number" value="5000" min="500"></div>
+                  <div class="field"><label for="sip-y">Investment period (years)</label><input id="sip-y" data-k="years" type="range" min="1" max="40" value="10"><div class="range-row"><span>1</span><span>40</span></div></div>
+                  <div class="field"><label for="sip-r">Expected return (% p.a.)</label><input id="sip-r" data-k="rate" type="range" min="1" max="20" value="12"><div class="range-row"><span>1%</span><span>20%</span></div></div>
+                </form>
+                <div>
+                  <div class="calc-stats" data-result></div>
+                  <canvas id="sipChart" height="180" aria-label="Investment versus returns chart"></canvas>
+                </div>
+              </div>
+              <p class="calc-note">Assumes a constant rate of return for illustration. Actual results can be higher or lower. Not a guarantee.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-goal" data-calc="goal">
+              <h3>Goal Calculator</h3>
+              <form>
+                <div class="field"><label>Goal amount (₹)</label><input data-k="goal" type="number" value="2500000"></div>
+                <div class="field"><label>Years</label><input data-k="years" type="number" value="10"></div>
+                <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="12"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Educational estimate of the SIP that could hypothetically reach a goal. Not a guarantee.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-retire" data-calc="retirement">
+              <h3>Retirement Planning</h3>
+              <form>
+                <div class="field"><label>Monthly savings (₹)</label><input data-k="monthly" type="number" value="10000"></div>
+                <div class="field"><label>Years to retire</label><input data-k="years" type="number" value="25"></div>
+                <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="10"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Simplified corpus projection. Inflation, taxes and actual returns are not modelled.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-swp" data-calc="swp">
+              <h3>Systematic Withdrawal Plan</h3>
+              <form>
+                <div class="field"><label>Starting corpus (₹)</label><input data-k="corpus" type="number" value="5000000"></div>
+                <div class="field"><label>Monthly withdrawal (₹)</label><input data-k="monthly" type="number" value="25000"></div>
+                <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="8"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Duration is a mathematical estimate. Capital can deplete faster in real markets.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-lumpsum" data-calc="lumpsum">
+              <h3>Lumpsum Future Value</h3>
+              <form>
+                <div class="field"><label>Amount (₹)</label><input data-k="amount" type="number" value="100000"></div>
+                <div class="field"><label>Years</label><input data-k="years" type="number" value="10"></div>
+                <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="12"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Compounded annually for illustration only.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-goallump" data-calc="goallump">
+              <h3>Goal Lumpsum Calculator</h3>
+              <form>
+                <div class="field"><label>Goal amount (₹)</label><input data-k="goal" type="number" value="2000000"></div>
+                <div class="field"><label>Years</label><input data-k="years" type="number" value="8"></div>
+                <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="12"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Present value of a future goal at a constant assumed rate.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-cagr" data-calc="cagr">
+              <h3>CAGR Calculator</h3>
+              <form>
+                <div class="field"><label>Beginning value (₹)</label><input data-k="begin" type="number" value="100000"></div>
+                <div class="field"><label>Ending value (₹)</label><input data-k="end" type="number" value="180000"></div>
+                <div class="field"><label>Years</label><input data-k="years" type="number" value="5"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">CAGR describes past growth. It does not predict future returns.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-pos" data-calc="position">
+              <h3>Position Sizing</h3>
+              <form>
+                <div class="field"><label>Capital (₹)</label><input data-k="capital" type="number" value="200000"></div>
+                <div class="field"><label>Risk per trade (%)</label><input data-k="risk" type="number" value="1" step="0.1"></div>
+                <div class="field"><label>Entry price</label><input data-k="entry" type="number" value="250"></div>
+                <div class="field"><label>Stop price</label><input data-k="stop" type="number" value="230"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Educational risk-sizing only. Trading involves loss of capital.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-car" data-calc="carloan">
+              <h3>Car Loan Calculator</h3>
+              <form>
+                <div class="field"><label>Loan amount (₹)</label><input data-k="amount" type="number" value="800000"></div>
+                <div class="field"><label>Tenure (years)</label><input data-k="years" type="number" value="5"></div>
+                <div class="field"><label>Interest (% p.a.)</label><input data-k="rate" type="number" value="9.5" step="0.1"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">Standard reducing-balance EMI formula. Lender terms will differ.</p>
+            </div>
+
+            <div class="calc-panel" id="calc-emi" data-calc="emi">
+              <h3>EMI Calculator</h3>
+              <form>
+                <div class="field"><label>Principal (₹)</label><input data-k="amount" type="number" value="1500000"></div>
+                <div class="field"><label>Tenure (years)</label><input data-k="years" type="number" value="20"></div>
+                <div class="field"><label>Interest (% p.a.)</label><input data-k="rate" type="number" value="8.5" step="0.1"></div>
+              </form>
+              <div class="calc-stats" data-result></div>
+              <p class="calc-note">For home or personal loans. Confirm figures with your lender.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="gold-arc" aria-hidden="true"></div>
+      <div class="container-ms">
+        <h2>Ready to start learning?</h2>
+        <div class="actions">
+          <a class="btn-ms btn-gold" href="programs.html">Explore Programs</a>
+          <a class="btn-ms btn-ghost" href="contact.html">Book Free Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/ticker.js"></script>
+  <script src="js/calculators.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

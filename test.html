@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Background Animation Test</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #03091c;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(0, 91, 190, .18), transparent 34%),
+        radial-gradient(circle at 92% 78%, rgba(0, 180, 255, .08), transparent 30%),
+        linear-gradient(115deg, #020718 0%, #050b24 48%, #020817 100%);
+    }
+
+    #tradingCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .24;
+      background-image:
+        linear-gradient(rgba(43, 120, 190, .13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(43, 120, 190, .13) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: linear-gradient(to right, transparent 0%, black 28%, black 100%);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(2, 7, 24, .98) 0%, rgba(2, 7, 24, .82) 23%, rgba(2, 7, 24, .28) 56%, rgba(2, 7, 24, .08) 100%),
+        linear-gradient(0deg, rgba(2, 7, 24, .62), transparent 38%, rgba(2, 7, 24, .22));
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 8vw;
+      color: white;
+      pointer-events: none;
+    }
+
+    .copy {
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      color: #ffc928;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 6vw, 88px);
+      line-height: .94;
+      letter-spacing: -3px;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .blue {
+      color: #4db9ff;
+    }
+
+    .subtitle {
+      max-width: 520px;
+      margin: 24px 0 28px;
+      color: rgba(235, 243, 255, .72);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .button {
+      padding: 13px 22px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .05);
+      color: white;
+    }
+
+    .button.primary {
+      background: #ffc928;
+      color: #081025;
+      border-color: #ffc928;
+    }
+
+    .badge {
+      position: absolute;
+      right: 7vw;
+      top: 18%;
+      z-index: 3;
+      width: 190px;
+      padding: 16px;
+      border: 1px solid rgba(81, 180, 255, .25);
+      border-radius: 16px;
+      background: rgba(3, 14, 39, .45);
+      backdrop-filter: blur(10px);
+      color: white;
+      box-shadow: 0 0 35px rgba(0, 120, 255, .08);
+    }
+
+    .badge small {
+      color: #7fb9e8;
+      font-size: 10px;
+    }
+
+    .badge strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 28px;
+    }
+
+    .badge .up {
+      color: #3dc9ff;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .content {
+        padding: 9vw;
+      }
+
+      .badge {
+        display: none;
+      }
+
+      .grid {
+        opacity: .14;
+      }
+
+      .overlay {
+        background:
+          linear-gradient(90deg, rgba(2, 7, 24, .96), rgba(2, 7, 24, .68)),
+          linear-gradient(0deg, rgba(2, 7, 24, .72), transparent);
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #tradingCanvas {
+        opacity: .65;
+      }
+    }
+
+    .market-scan {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: linear-gradient(to bottom,
+          transparent,
+          rgba(40, 188, 255, .0) 10%,
+          rgba(40, 188, 255, .7) 50%,
+          rgba(40, 188, 255, .0) 90%,
+          transparent);
+      box-shadow: 0 0 24px rgba(40, 188, 255, .65);
+      animation: marketScan 8s linear infinite;
+      pointer-events: none;
+    }
+
+    .radar-glow {
+      position: absolute;
+      z-index: 1;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(46, 177, 255, .08);
+      background: radial-gradient(circle, rgba(46, 177, 255, .11), transparent 62%);
+      filter: blur(.2px);
+      pointer-events: none;
+      animation: radarPulse 5s ease-in-out infinite;
+    }
+
+    .radar-glow::before,
+    .radar-glow::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      border: 1px solid rgba(46, 177, 255, .08);
+    }
+
+    .radar-glow::after {
+      inset: 30%;
+      border-color: rgba(255, 201, 40, .08);
+    }
+
+    .radar-one {
+      right: -110px;
+      top: 8%;
+    }
+
+    .radar-two {
+      right: 18%;
+      bottom: -280px;
+      animation-delay: -2s;
+    }
+
+    .data-streams {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: .28;
+    }
+
+    .data-streams i {
+      position: absolute;
+      top: -20%;
+      width: 1px;
+      height: 140%;
+      background: linear-gradient(to bottom,
+          transparent,
+          rgba(45, 185, 255, .5),
+          transparent);
+      transform: rotate(16deg);
+      animation: streamMove 6s linear infinite;
+    }
+
+    .data-streams i:nth-child(1) {
+      left: 48%;
+      animation-delay: -1s;
+    }
+
+    .data-streams i:nth-child(2) {
+      left: 58%;
+      animation-delay: -3s;
+      height: 120%;
+    }
+
+    .data-streams i:nth-child(3) {
+      left: 68%;
+      animation-delay: -5s;
+    }
+
+    .data-streams i:nth-child(4) {
+      left: 76%;
+      animation-delay: -2s;
+      height: 110%;
+    }
+
+    .data-streams i:nth-child(5) {
+      left: 86%;
+      animation-delay: -4s;
+    }
+
+    .data-streams i:nth-child(6) {
+      left: 94%;
+      animation-delay: -6s;
+    }
+
+    @keyframes marketScan {
+      from {
+        left: 25%;
+        opacity: 0;
+      }
+
+      8% {
+        opacity: .8;
+      }
+
+      92% {
+        opacity: .8;
+      }
+
+      to {
+        left: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes radarPulse {
+
+      0%,
+      100% {
+        transform: scale(.94);
+        opacity: .25;
+      }
+
+      50% {
+        transform: scale(1.04);
+        opacity: .58;
+      }
+    }
+
+    @keyframes streamMove {
+      from {
+        transform: translate3d(-40px, -5%, 0) rotate(16deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      85% {
+        opacity: 1;
+      }
+
+      to {
+        transform: translate3d(70px, 8%, 0) rotate(16deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="market-scan"></div>
+    <div class="radar-glow radar-one"></div>
+    <div class="radar-glow radar-two"></div>
+    <div class="data-streams" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <canvas id="tradingCanvas"></canvas>
+    <div class="grid"></div>
+    <div class="overlay"></div>
+
+    <!-- Demo content: remove this block when integrating into your existing website -->
+    <div class="content">
+      <div class="copy">
+        <div class="eyebrow">FINANCIAL EDUCATION • INVEST • GROW</div>
+        <h1>
+          <span>LEARN.</span>
+          <span>INVEST.</span>
+          <span class="blue">GROW YOUR WEALTH.</span>
+        </h1>
+        <p class="subtitle">
+          A live financial-data background with moving market values,
+          candlesticks, trend lines and flowing trading signals.
+        </p>
+        <div class="buttons">
+          <div class="button primary">EXPLORE PROGRAMS</div>
+          <div class="button">BOOK FREE CONSULTATION</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="badge">
+      <small>GLOBAL MARKET INDEX</small>
+      <strong id="indexValue">31.21</strong>
+      <span class="up">▲ +0.42%</span>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("tradingCanvas");
+      const ctx = canvas.getContext("2d");
+      const indexValue = document.getElementById("indexValue");
+
+      let W = 0, H = 0, dpr = 1;
+      let candles = [];
+      let particles = [];
+      let values = [];
+      let reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const rand = (min, max) => Math.random() * (max - min) + min;
+      const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+      function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        W = window.innerWidth;
+        H = window.innerHeight;
+
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + "px";
+        canvas.style.height = H + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        buildScene();
+      }
+
+      function buildScene() {
+        const mobile = W < 800;
+
+        candles = [];
+        const count = mobile ? 42 : 78;
+        let price = H * .64;
+
+        for (let i = 0; i < count; i++) {
+          const x = W * .45 + i * (W * .55 / count);
+          const volatility = rand(-30, 30);
+          const next = clamp(price + volatility, H * .28, H * .75);
+
+          candles.push({
+            x,
+            open: price,
+            close: next,
+            high: Math.min(price, next) - rand(8, 32),
+            low: Math.max(price, next) + rand(8, 32),
+            age: rand(0, 1),
+            speed: rand(.0007, .0017)
+          });
+
+          price = next;
+        }
+
+        particles = Array.from({ length: mobile ? 45 : 95 }, () => ({
+          x: rand(W * .25, W),
+          y: rand(H * .08, H * .92),
+          r: rand(.5, 1.8),
+          a: rand(.12, .55),
+          speed: rand(.05, .24),
+          phase: rand(0, Math.PI * 2)
+        }));
+
+        values = Array.from({ length: mobile ? 18 : 34 }, (_, i) => ({
+          x: rand(W * .38, W * .96),
+          y: rand(H * .12, H * .9),
+          value: rand(8, 99).toFixed(2),
+          sign: Math.random() > .25 ? "+" : "-",
+          alpha: rand(.16, .46),
+          drift: rand(.08, .22),
+          phase: rand(0, 6.28),
+          size: rand(10, 17)
+        }));
+      }
+
+      function glowLine(points, color, width = 1.4, glow = 10) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+
+        for (let i = 1; i < points.length; i++) {
+          const p = points[i];
+          ctx.lineTo(p.x, p.y);
+        }
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = width;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = glow;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function drawTrend(t, offset, color, amplitude, base) {
+        const points = [];
+        const step = Math.max(18, W / 55);
+
+        for (let x = W * .2; x <= W; x += step) {
+          const y =
+            base +
+            Math.sin(x * .009 + t * .00045 + offset) * amplitude +
+            Math.sin(x * .018 - t * .00027 + offset * 2) * amplitude * .35;
+
+          points.push({ x, y });
+        }
+
+        glowLine(points, color, 1.35, 8);
+      }
+
+      function drawCandles(t) {
+        const maxVisibleX = W;
+        for (const c of candles) {
+          const progress = reducedMotion ? 1 : (Math.sin(t * c.speed + c.age * 5) + 1) * .5;
+          const alpha = .16 + progress * .15;
+
+          const bullish = c.close < c.open;
+          const color = bullish
+            ? `rgba(27,177,255,${alpha})`
+            : `rgba(224,71,125,${alpha})`;
+
+          ctx.save();
+          ctx.strokeStyle = color;
+          ctx.fillStyle = color;
+          ctx.shadowColor = color;
+          ctx.shadowBlur = 5;
+
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(c.x, c.high);
+          ctx.lineTo(c.x, c.low);
+          ctx.stroke();
+
+          const top = Math.min(c.open, c.close);
+          const bottom = Math.max(c.open, c.close);
+          ctx.fillRect(c.x - 3, top, 6, Math.max(4, bottom - top));
+          ctx.restore();
+        }
+      }
+
+      function drawVolume(t) {
+        const bars = W < 800 ? 34 : 65;
+        const start = W * .38;
+        const width = (W - start) / bars;
+
+        for (let i = 0; i < bars; i++) {
+          const wave = Math.sin(i * .72 + t * .001) * .5 + .5;
+          const h = 15 + wave * 80 * (0.4 + i / bars);
+          const x = start + i * width;
+
+          const gradient = ctx.createLinearGradient(0, H - h, 0, H);
+          gradient.addColorStop(0, "rgba(24,157,255,.28)");
+          gradient.addColorStop(1, "rgba(24,157,255,.015)");
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(x, H - h - 25, Math.max(2, width - 2), h);
+        }
+      }
+
+      function drawValues(t) {
+        ctx.save();
+        ctx.font = "600 12px Arial";
+
+        for (const v of values) {
+          const y = v.y + Math.sin(t * .0007 + v.phase) * 5;
+          const x = v.x - ((t * v.drift * .02) % 35);
+
+          if (x < W * .3) continue;
+
+          ctx.fillStyle = `rgba(55,171,255,${v.alpha})`;
+          ctx.fillText(`${v.sign}${v.value}`, x, y);
+
+          if (Math.sin(t * .001 + v.phase) > .75) {
+            ctx.fillStyle = `rgba(255,201,40,${v.alpha * .75})`;
+            ctx.fillRect(x - 7, y + 4, 3, 3);
+          }
+        }
+
+        ctx.restore();
+      }
+
+      function drawParticles(t) {
+        for (const p of particles) {
+          const y = p.y + Math.sin(t * .001 * p.speed + p.phase) * 8;
+          const a = p.a * (.55 + Math.sin(t * .002 + p.phase) * .45);
+
+          ctx.beginPath();
+          ctx.arc(p.x, y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(30,164,255,${Math.max(.02, a)})`;
+          ctx.shadowColor = "rgba(30,164,255,.7)";
+          ctx.shadowBlur = 7;
+          ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+      }
+
+
+      // Enhanced market animation
+      let lastFrame = performance.now();
+      let pulseBursts = [];
+      let priceTrail = [];
+      let flashEvents = [];
+
+      function addBurst(x, y, bullish = true) {
+        pulseBursts.push({
+          x, y,
+          r: 2,
+          max: rand(18, 42),
+          life: 1,
+          bullish
+        });
+      }
+
+      function drawBursts() {
+        for (let i = pulseBursts.length - 1; i >= 0; i--) {
+          const b = pulseBursts[i];
+          b.r += .65;
+          b.life -= .018;
+
+          ctx.beginPath();
+          ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+          ctx.strokeStyle = b.bullish
+            ? `rgba(31,190,255,${b.life * .35})`
+            : `rgba(232,70,130,${b.life * .28})`;
+          ctx.lineWidth = 1;
+          ctx.shadowColor = b.bullish ? "#1fbfff" : "#e84682";
+          ctx.shadowBlur = 12;
+          ctx.stroke();
+
+          if (b.life <= 0 || b.r > b.max) pulseBursts.splice(i, 1);
+        }
+        ctx.shadowBlur = 0;
+      }
+
+      function drawMovingSignal(t) {
+        const x = W * .42 + ((t * .045) % (W * .62));
+        const y =
+          H * .61 +
+          Math.sin(x * .011 + t * .0007) * H * .09 +
+          Math.sin(x * .025 - t * .00035) * H * .025;
+
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, 22);
+        grad.addColorStop(0, "rgba(77,210,255,.95)");
+        grad.addColorStop(.18, "rgba(77,210,255,.35)");
+        grad.addColorStop(1, "rgba(77,210,255,0)");
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(x, y, 22, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#bceeff";
+        ctx.shadowColor = "#31c7ff";
+        ctx.shadowBlur = 18;
+        ctx.beginPath();
+        ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      function drawMiniTicker(t) {
+        const baseX = W * .57;
+        const baseY = H * .18;
+        const width = Math.min(420, W * .34);
+
+        ctx.save();
+        ctx.font = "600 10px Arial";
+        ctx.textBaseline = "middle";
+
+        for (let i = 0; i < 5; i++) {
+          const x = baseX + i * (width / 5);
+          const v = (90 + Math.sin(t * .0008 + i * 1.7) * 18 + Math.sin(t * .0017 + i) * 4).toFixed(2);
+          const up = Math.sin(t * .00055 + i) > -.15;
+
+          ctx.fillStyle = "rgba(145,198,235,.28)";
+          ctx.fillText(`MARKET ${i + 1}`, x, baseY);
+
+          ctx.fillStyle = up ? "rgba(44,194,255,.68)" : "rgba(231,83,132,.55)";
+          ctx.fillText(`${v} ${up ? "▲" : "▼"}`, x, baseY + 15);
+        }
+        ctx.restore();
+      }
+
+      function drawHolographicFrame(t) {
+        const x = W * .69, y = H * .56;
+        const w = Math.min(260, W * .23), h = 105;
+
+        ctx.save();
+        ctx.strokeStyle = "rgba(60,180,255,.09)";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, y, w, h);
+
+        for (let i = 1; i < 5; i++) {
+          ctx.beginPath();
+          ctx.moveTo(x, y + i * h / 5);
+          ctx.lineTo(x + w, y + i * h / 5);
+          ctx.stroke();
+        }
+
+        const pts = [];
+        for (let i = 0; i <= 28; i++) {
+          const px = x + i * w / 28;
+          const py = y + h * .55 +
+            Math.sin(i * .68 + t * .0011) * h * .2 +
+            Math.sin(i * .21 - t * .0007) * h * .1;
+          pts.push({ x: px, y: py });
+        }
+
+        glowLine(pts, "rgba(42,193,255,.42)", 1, 7);
+        ctx.restore();
+      }
+
+      function updateFlashEvents(t) {
+        if (Math.random() < .018 && !reducedMotion) {
+          flashEvents.push({
+            x: rand(W * .55, W * .96),
+            y: rand(H * .15, H * .78),
+            life: 1
+          });
+        }
+
+        for (let i = flashEvents.length - 1; i >= 0; i--) {
+          const f = flashEvents[i];
+          f.life -= .035;
+
+          const g = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, 28);
+          g.addColorStop(0, `rgba(255,201,40,${f.life * .65})`);
+          g.addColorStop(1, "rgba(255,201,40,0)");
+
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, 28, 0, Math.PI * 2);
+          ctx.fill();
+
+          if (f.life <= 0) flashEvents.splice(i, 1);
+        }
+      }
+
+      function animate(t) {
+        ctx.clearRect(0, 0, W, H);
+
+        if (reducedMotion) t = 0;
+
+        drawParticles(t);
+        drawValues(t);
+        drawCandles(t);
+        drawVolume(t);
+
+        drawTrend(t, 0.2, "rgba(0,177,255,.58)", H * .085, H * .59);
+        drawTrend(t, 2.1, "rgba(255,198,44,.42)", H * .065, H * .69);
+        drawTrend(t, 4.3, "rgba(27,114,255,.25)", H * .12, H * .52);
+
+        drawMovingSignal(t);
+        drawMiniTicker(t);
+        drawHolographicFrame(t);
+        drawBursts();
+        updateFlashEvents(t);
+
+        // Generate occasional activity points along the market chart.
+        if (!reducedMotion && Math.random() < .008) {
+          const x = rand(W * .55, W * .94);
+          const y = H * .48 + rand(-H * .16, H * .16);
+          addBurst(x, y, Math.random() > .25);
+        }
+
+        if (!reducedMotion) {
+          const market = (31.21 + Math.sin(t * .00045) * .7 + Math.sin(t * .0011) * .22).toFixed(2);
+          indexValue.textContent = market;
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        // Canvas animation naturally stops drawing while hidden by the browser's
+        // throttling. No timers are used, keeping the page lightweight.
+      });
+
+      window.addEventListener("resize", resize);
+      resize();
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+
+</html>

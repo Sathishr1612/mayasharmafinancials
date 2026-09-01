@@ -1,0 +1,297 @@
+@media (max-width: 1199px) {
+  .calc-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .calc-nav button {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .calc-cat {
+    display: none;
+  }
+
+  .hero-inner,
+  .why-grid,
+  .about-grid,
+  .tedx-block,
+  .women-grid,
+  .calc-layout,
+  .blog-feature,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+    order: 2;
+    margin-top: 32px;
+  }
+
+  .float-1 { left: 0; }
+  .float-2, .float-3 { right: 0; }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 991px) {
+  .nav-desktop,
+  .header-actions .consult-link,
+  .header-actions .btn-ms {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .counter-grid,
+  .path-grid,
+  .resource-grid,
+  .blog-grid,
+  .gallery-grid,
+  .workshop-grid,
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-card:first-child {
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .counter-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .ba-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ba-arrow {
+    transform: rotate(90deg);
+  }
+
+  .women-points,
+  .women-program-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    .women-program-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .progress-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .progress-row::before {
+    left: 18px;
+    right: auto;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    height: auto;
+  }
+
+  .progress-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+
+  .progress-step i {
+    margin: 0;
+  }
+
+  .fab-stack {
+    display: none;
+  }
+
+  .mobile-cta-bar {
+    display: grid;
+  }
+
+  body {
+    padding-bottom: 64px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--ticker-h) + var(--header-h) + 12px);
+  }
+}
+
+@media (max-width: 767px) {
+  .container-ms,
+  .header-inner {
+    width: min(calc(100% - 28px), var(--container));
+  }
+  
+  .brand-logo img {
+    height: 36px;
+  }
+
+  h1 {
+    font-size: clamp(36px, 10vw, 56px);
+  }
+
+  .hero-actions,
+  .final-cta .actions,
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-ms {
+    width: 100%;
+  }
+
+  .header-actions .btn-ms {
+    width: auto;
+  }
+
+  .footer-grid,
+  .footer-bottom {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .learner-marquee-track img {
+    height: 180px;
+  }
+
+  .learner-marquee-label {
+    font-size: 22px;
+  }
+
+  .cert-button-prev,
+  .cert-button-next {
+    display: none;
+  }
+
+  .women-grid {
+    gap: 40px;
+  }
+
+  .women-program-steps {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .women-visual-wrap {
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px 10px 16px 0;
+  }
+
+  .women-visual-wrap::before {
+    left: 14px;
+    bottom: 20px;
+  }
+
+  .program-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ticker-label {
+    font-size: 10px;
+    padding: 0 10px;
+  }
+
+  .hero-visual {
+    min-height: 320px;
+    margin-top: 20px;
+  }
+
+  .portrait-wrap {
+    width: min(100%, 270px);
+    margin: 0 auto;
+  }
+
+  .float-card {
+    min-width: 90px;
+    padding: 6px 9px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  }
+
+  .float-card strong {
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .float-card span {
+    font-size: 9.5px;
+  }
+
+  .float-1 {
+    left: -18px;
+    top: 38%;
+  }
+
+  .float-2 {
+    right: -18px;
+    top: 8%;
+  }
+
+  .float-3 {
+    right: -18px;
+    bottom: 4%;
+  }
+
+  .page-hero {
+    padding: 140px 0 56px;
+  }
+
+  .scroll-reveal {
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 430px) {
+  body {
+    font-size: 16px;
+  }
+
+  .counter-num {
+    font-size: 32px;
+  }
+
+  .why-item {
+    grid-template-columns: 48px 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: 1240px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container: 1320px;
+  }
+}
