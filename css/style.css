@@ -1657,25 +1657,63 @@ h3 {
 }
 
 .about-roles {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 20px 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0 28px;
 }
 
 .about-roles-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: contents;
 }
 
 .role-chip {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 13px;
-  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: var(--white);
+  border: 1px solid rgba(11, 16, 45, 0.09);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(11, 16, 45, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.role-chip i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(252, 201, 5, 0.15);
+  color: #C69200;
+  font-size: 13.5px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.role-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.role-chip:hover {
+  border-color: rgba(252, 201, 5, 0.55);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 16, 45, 0.08), 0 0 0 1px rgba(252, 201, 5, 0.2);
+}
+
+.role-chip:hover i {
+  background: var(--gold);
+  color: var(--navy);
+  transform: scale(1.08);
 }
 
 
@@ -3255,9 +3293,13 @@ article.blog-detail {
   padding: 20px 5px 30px;
 }
 
+.testimonials-swiper .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 .testimonials-swiper .swiper-slide {
   height: auto;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
   display: flex;
 }
 
@@ -3273,7 +3315,7 @@ article.blog-detail {
   justify-content: space-between;
   width: 100%;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  transition: all 0.4s ease;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
   position: relative;
 }
 

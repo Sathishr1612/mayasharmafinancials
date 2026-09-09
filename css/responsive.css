@@ -186,16 +186,46 @@
     padding: 80px 0;
   }
 
-  .hero {
-    min-height: auto;
-    padding-top: 48px;
+  .tedx-block {
+    margin-top: 56px;
+    padding: 36px 28px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 767px) {
   .container-ms,
   .header-inner {
-    width: min(calc(100% - 24px), var(--container));
+    width: min(calc(100% - 20px), var(--container));
+  }
+
+  .tedx-block {
+    margin-top: 40px;
+    padding: 24px 18px;
+    gap: 24px;
+    border-radius: 20px;
+  }
+
+  .tedx-block h2 {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 12px;
+  }
+
+  .tedx-block p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .tedx-block .video-thumb {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .tedx-block .play-btn {
+    width: 58px;
+    height: 58px;
+    font-size: 20px;
   }
   
   .brand-logo img {
@@ -335,6 +365,28 @@
   }
 }
 
+@media (max-width: 640px) {
+  .about-roles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 16px 0 20px;
+  }
+
+  .role-chip {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 7px;
+    border-radius: 10px;
+  }
+
+  .role-chip i {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+}
+
 @media (max-width: 430px) {
   body {
     font-size: 16px;
@@ -346,6 +398,48 @@
 
   .why-item {
     grid-template-columns: 48px 1fr;
+  }
+
+  .about-roles {
+    gap: 8px 6px;
+    margin: 14px 0 18px;
+  }
+
+  .role-chip {
+    padding: 7px 7px;
+    font-size: 11px;
+    gap: 5px;
+    border-radius: 8px;
+  }
+
+  .role-chip i {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    border-radius: 5px;
+  }
+
+  .tedx-block {
+    margin-top: 32px;
+    padding: 18px 14px;
+    gap: 18px;
+    border-radius: 16px;
+  }
+
+  .tedx-block h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .tedx-block p {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+  }
+
+  .tedx-block .play-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
   }
 }
 

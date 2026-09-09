@@ -125,9 +125,10 @@
         centeredSlides: false,
         loop: true,
         grabCursor: true,
-        speed: 800,
+        speed: 1200,
+        roundLengths: true,
         autoplay: {
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         },
