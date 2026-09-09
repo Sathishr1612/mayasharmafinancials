@@ -14,7 +14,7 @@
     const link = e.target.closest('a');
     if (link) {
       const href = link.getAttribute('href');
-      if (href && !href.startsWith('#') && href !== 'index.html' && !href.startsWith('javascript:')) {
+      if (href && !href.startsWith('#') && href !== 'index.html' && !href.startsWith('javascript:') && !href.startsWith('tel:') && !href.startsWith('mailto:') && !href.includes('wa.me')) {
         e.preventDefault();
       }
     }
@@ -67,7 +67,18 @@
           ${nav.map((item) => `<a class="nav-link${activeClass(item.key)}" href="${item.href}">${item.label}</a>`).join("")}
         </nav>
         <div class="header-actions">
-          <a class="btn-ms btn-gold" href="programs.html#programs">Enroll Now</a>
+          <div class="header-contact">
+            <a class="header-contact-link" href="tel:+919831352591" title="Call Maya Sharma">
+              <i class="bi bi-telephone-fill"></i>
+              <span>+91-9831352591</span>
+            </a>
+            <span class="header-contact-sep" aria-hidden="true">|</span>
+            <a class="header-contact-link" href="mailto:info@mayasharmafinancials.in" title="Email Maya Sharma">
+              <i class="bi bi-envelope-fill"></i>
+              <span>info@mayasharmafinancials.in</span>
+            </a>
+          </div>
+          <a class="btn-ms btn-gold btn-enroll" href="programs.html#programs">Enroll Now</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -75,10 +86,28 @@
       </div>
     </header>
     <div class="mobile-nav" id="mobileNav" hidden>
-      <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
-      ${nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join("")}
-      <a href="contact.html">Book Consultation</a>
-      <a class="btn-ms btn-gold mt-4" href="programs.html#programs">Enroll Now</a>
+      <div class="mobile-nav-top">
+        <a class="brand-logo" href="index.html" aria-label="Maya Sharma home">
+          <img src="${logoSrc}" alt="Maya Sharma Financial logo" width="180" height="46">
+        </a>
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="mobile-nav-links" aria-label="Mobile primary navigation">
+        ${nav.map((item) => `<a class="mobile-nav-link${activeClass(item.key)}" href="${item.href}">${item.label}</a>`).join("")}
+      </nav>
+      <div class="mobile-nav-contact">
+        <a class="mobile-contact-link" href="tel:+919831352591">
+          <i class="bi bi-telephone-fill"></i>
+          <span>+91-9831352591</span>
+        </a>
+        <a class="mobile-contact-link" href="mailto:info@mayasharmafinancials.in">
+          <i class="bi bi-envelope-fill"></i>
+          <span>info@mayasharmafinancials.in</span>
+        </a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a class="btn-ms btn-gold w-100" href="programs.html#programs">Enroll Now</a>
+      </div>
     </div>
   `;
 
@@ -173,10 +202,11 @@
 
   function onScroll() {
     if (!headerEl) return;
-    if (!isHome) return; // Non-home pages: header is always sticky, no need for transitions or layout shifts
-    const scrolled = window.scrollY > 24;
+    const scrolled = window.scrollY > 20;
     headerEl.classList.toggle("is-scrolled", scrolled);
-    headerEl.classList.toggle("is-hero", !scrolled);
+    if (isHome) {
+      headerEl.classList.toggle("is-hero", !scrolled);
+    }
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });

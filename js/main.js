@@ -125,9 +125,9 @@
         centeredSlides: false,
         loop: true,
         grabCursor: true,
-        speed: 700,
+        speed: 800,
         autoplay: {
-          delay: 4500,
+          delay: 2500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         },
@@ -186,7 +186,7 @@
           prevEl: ".cert-button-prev",
         },
         breakpoints: {
-          640:  { slidesPerView: 2, spaceBetween: 24 },
+          640: { slidesPerView: 2, spaceBetween: 24 },
           1024: { slidesPerView: 3, spaceBetween: 28 }
         }
       });
