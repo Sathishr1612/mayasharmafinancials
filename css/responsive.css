@@ -33,8 +33,14 @@
     margin-top: 32px;
   }
 
-  .float-1 { left: 0; }
-  .float-2, .float-3 { right: 0; }
+  .float-1 {
+    left: 0;
+  }
+
+  .float-2,
+  .float-3 {
+    right: 0;
+  }
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -84,6 +90,7 @@
 
 /* Medium tablet: collapse nav + contact into hamburger */
 @media (max-width: 1050px) {
+
   .nav-desktop,
   .header-contact {
     display: none;
@@ -106,6 +113,7 @@
 }
 
 @media (max-width: 991px) {
+
   .counter-grid,
   .path-grid,
   .resource-grid,
@@ -170,7 +178,8 @@
     margin: 0;
   }
 
-  .fab-stack {
+  .fab-stack,
+  .floating-contacts {
     display: none;
   }
 
@@ -194,6 +203,7 @@
 }
 
 @media (max-width: 767px) {
+
   .container-ms,
   .header-inner {
     width: min(calc(100% - 20px), var(--container));
@@ -227,15 +237,33 @@
     height: 58px;
     font-size: 20px;
   }
-  
+
   .brand-logo img {
-    height: 38px;
+    height: 46px;
   }
 
   /* Hide header Enroll Now button on mobile to keep top header clean and spacious */
   .header-actions .btn-enroll,
   .header-actions .btn-ms {
     display: none !important;
+  }
+
+  /* Floating Social Media Buttons on Mobile */
+  .floating-socials {
+    right: 10px;
+    gap: 10px;
+    width: auto;
+    padding: 0;
+  }
+
+  .floating-social-link {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .floating-social-link i {
+    font-size: 16px;
   }
 
   /* Mobile toggle button */
@@ -440,6 +468,23 @@
     width: 52px;
     height: 52px;
     font-size: 18px;
+  }
+
+  .floating-socials {
+    right: 7px;
+    gap: 8px;
+    width: auto;
+    padding: 0;
+  }
+
+  .floating-social-link {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .floating-social-link i {
+    font-size: 14px;
   }
 }
 

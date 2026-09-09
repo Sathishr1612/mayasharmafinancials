@@ -14,7 +14,7 @@
     const link = e.target.closest('a');
     if (link) {
       const href = link.getAttribute('href');
-      if (href && !href.startsWith('#') && href !== 'index.html' && !href.startsWith('javascript:') && !href.startsWith('tel:') && !href.startsWith('mailto:') && !href.includes('wa.me')) {
+      if (href && !href.startsWith('#') && href !== 'index.html' && !href.startsWith('javascript:') && !href.startsWith('tel:') && !href.startsWith('mailto:') && !href.includes('wa.me') && !href.startsWith('http')) {
         e.preventDefault();
       }
     }
@@ -167,9 +167,27 @@
         </span>
       </div>
     </footer>
-    <div class="fab-stack">
-      <a class="fab fab-wa" href="https://wa.me/919831352591" aria-label="WhatsApp Maya Sharma" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
-      <a class="fab fab-call" href="tel:+919831352591" aria-label="Call Maya Sharma"><i class="bi bi-telephone"></i></a>
+    <div class="floating-socials" aria-label="Social media links">
+      <a class="floating-social-link social-linkedin" href="https://www.linkedin.com/in/maya-sharma-financial-coach" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a class="floating-social-link social-instagram" href="https://www.instagram.com/msfinancials_" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="floating-social-link social-youtube" href="https://www.youtube.com/@msfinancial" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener">
+        <i class="bi bi-youtube"></i>
+      </a>
+      <a class="floating-social-link social-facebook" href="https://www.facebook.com/MSFinancials2008" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
+        <i class="bi bi-facebook"></i>
+      </a>
+    </div>
+    <div class="fab-stack" aria-label="Direct contact">
+      <a class="fab fab-wa" href="https://wa.me/919831352591" aria-label="WhatsApp Maya Sharma" title="WhatsApp" target="_blank" rel="noopener">
+        <i class="bi bi-whatsapp"></i>
+      </a>
+      <a class="fab fab-call" href="tel:+919831352591" aria-label="Call Maya Sharma" title="Call">
+        <i class="bi bi-telephone"></i>
+      </a>
     </div>
     <nav class="mobile-cta-bar" aria-label="Quick actions">
       <a href="https://wa.me/919831352591" target="_blank" rel="noopener">WhatsApp</a>
