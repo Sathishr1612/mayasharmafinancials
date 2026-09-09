@@ -3299,7 +3299,7 @@ article.blog-detail {
 
 .testimonials-swiper .swiper-slide {
   height: auto;
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
   display: flex;
 }
 
@@ -3315,7 +3315,7 @@ article.blog-detail {
   justify-content: space-between;
   width: 100%;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   position: relative;
 }
 
