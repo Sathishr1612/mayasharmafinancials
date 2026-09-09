@@ -417,8 +417,8 @@ h3 {
 }
 
 .brand-logo img {
-  height: 56px;
-  max-height: 58px;
+  height: 58px;
+  max-height: 62px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -427,11 +427,11 @@ h3 {
 }
 
 .brand-logo:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .site-header.is-scrolled .brand-logo img {
-  height: 50px;
+  height: 58px;
 }
 
 .nav-desktop {
