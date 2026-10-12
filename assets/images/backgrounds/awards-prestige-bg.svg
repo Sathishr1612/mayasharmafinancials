@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Soft executive warm ivory base -->
+    <linearGradient id="awardBase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf8f2"/>
+      <stop offset="50%" stop-color="#f6f1e5"/>
+      <stop offset="100%" stop-color="#faf7ef"/>
+    </linearGradient>
+
+    <!-- Warm golden ambient center spotlight -->
+    <radialGradient id="stageGlow" cx="50%" cy="58%" r="45%">
+      <stop offset="0%" stop-color="#fcc905" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#e5b400" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#e5b400" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Crisp gold stroke gradient -->
+    <linearGradient id="goldLineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4a017" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#d4a017" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#fcc905" stop-opacity="0.4"/>
+      <stop offset="75%" stop-color="#d4a017" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d4a017" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Subtle dot pattern for corporate texture -->
+    <pattern id="corpDotPattern" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="18" cy="18" r="1" fill="#131a3e" fill-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="1600" height="900" fill="url(#awardBase)"/>
+
+  <!-- Subtle corporate micro-dot grid -->
+  <rect width="1600" height="900" fill="url(#corpDotPattern)"/>
+
+  <!-- Center stage spotlight -->
+  <rect width="1600" height="900" fill="url(#stageGlow)"/>
+
+  <!-- Architectural stage concentric ellipses under carousel -->
+  <g fill="none" stroke="url(#goldLineGrad)" stroke-width="1.2">
+    <ellipse cx="800" cy="560" rx="380" ry="110"/>
+    <ellipse cx="800" cy="560" rx="520" ry="150" opacity="0.65" stroke-dasharray="4 6"/>
+    <ellipse cx="800" cy="560" rx="680" ry="200" opacity="0.4"/>
+    <ellipse cx="800" cy="560" rx="860" ry="250" opacity="0.2" stroke-dasharray="2 8"/>
+  </g>
+
+  <!-- Subtle prestige laurel watermark behind headline -->
+  <g transform="translate(800, 155) scale(0.85)" fill="none" stroke="#d4a017" stroke-opacity="0.12" stroke-width="1.5">
+    <!-- Left laurel branch -->
+    <path d="M -20,70 C -70,55 -110,25 -130,-25 C -145,-65 -135,-115 -100,-150"/>
+    <path d="M -50,55 C -65,45 -75,30 -70,18 C -65,6 -50,15 -50,55 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M -85,30 C -105,20 -115,5 -110,-5 C -105,-15 -90,-5 -85,30 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M -115,-5 C -135,-15 -145,-30 -140,-40 C -135,-50 -120,-40 -115,-5 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M -130,-45 C -150,-55 -155,-75 -150,-85 C -145,-95 -130,-85 -130,-45 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M -125,-90 C -140,-105 -145,-125 -135,-135 C -125,-145 -115,-130 -125,-90 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M -100,-135 C -110,-150 -105,-170 -95,-175 C -85,-180 -80,-165 -100,-135 Z" fill="#d4a017" fill-opacity="0.05"/>
+
+    <!-- Right laurel branch -->
+    <path d="M 20,70 C 70,55 110,25 130,-25 C 145,-65 135,-115 100,-150"/>
+    <path d="M 50,55 C 65,45 75,30 70,18 C 65,6 50,15 50,55 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M 85,30 C 105,20 115,5 110,-5 C 105,-15 90,-5 85,30 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M 115,-5 C 135,-15 145,-30 140,-40 C 135,-50 120,-40 115,-5 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M 130,-45 C 150,-55 155,-75 150,-85 C 145,-95 130,-85 130,-45 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M 125,-90 C 140,-105 145,-125 135,-135 C 125,-145 115,-130 125,-90 Z" fill="#d4a017" fill-opacity="0.05"/>
+    <path d="M 100,-135 C 110,-150 105,-170 95,-175 C 85,-180 80,-165 100,-135 Z" fill="#d4a017" fill-opacity="0.05"/>
+
+    <!-- Center star of excellence -->
+    <polygon points="0,-160 5,-145 20,-145 8,-135 12,-120 0,-130 -12,-120 -8,-135 -20,-145 -5,-145" fill="#d4a017" fill-opacity="0.15"/>
+  </g>
+
+  <!-- Clean horizontal grounding baseline -->
+  <line x1="300" y1="780" x2="1300" y2="780" stroke="url(#goldLineGrad)" stroke-width="1"/>
+</svg>

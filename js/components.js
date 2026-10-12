@@ -2,28 +2,9 @@
   const page = document.body.dataset.page || "";
   const isHome = page === "home";
 
-  // --- DEMO MODE START ---
-  if (!isHome) {
-    const path = window.location.pathname;
-    if (!path.endsWith('index.html') && path !== '/' && !path.endsWith('/')) {
-      window.location.replace('index.html');
-    }
-  }
-
-  document.addEventListener('click', function(e) {
-    const link = e.target.closest('a');
-    if (link) {
-      const href = link.getAttribute('href');
-      if (href && !href.startsWith('#') && href !== 'index.html' && !href.startsWith('javascript:') && !href.startsWith('tel:') && !href.startsWith('mailto:') && !href.includes('wa.me') && !href.startsWith('http')) {
-        e.preventDefault();
-      }
-    }
-  });
-  // --- DEMO MODE END ---
-
   const nav = [
     { href: "index.html", label: "Home", key: "home" },
-    { href: "about.html", label: "About", key: "about" },
+    { href: "index.html#about", label: "About", key: "about" },
     { href: "programs.html", label: "Programs", key: "programs" },
     { href: "programs.html#certifications", label: "Certifications", key: "certs" },
     { href: "success-stories.html", label: "Success Stories", key: "stories" },
@@ -33,22 +14,13 @@
   ];
 
   function activeClass(key) {
-    if (page === "home") {
-      const isAbout = window.location.hash.includes("about");
-      if (isAbout && key === "about") return " active";
-      if (!isAbout && key === "home") return " active";
-      return "";
-    }
     const map = {
-      about: "about",
+      home: "home",
       programs: "programs",
       stories: "stories",
       calculators: "calculators",
       blog: "blog",
-      contact: "contact",
-      gallery: "",
-      terms: "",
-      privacy: ""
+      contact: "contact"
     };
     return map[page] === key ? " active" : "";
   }
@@ -60,25 +32,18 @@
   const header = `
     <header class="${headerClass}" id="siteHeader">
       <div class="header-inner">
-        <a class="brand-logo" href="index.html" aria-label="Maya Sharma home">
-          <img src="${logoSrc}" alt="Maya Sharma Financial logo" width="220" height="56">
+        <a class="brand-logo" href="index.html" aria-label="Maya A Sharma home">
+          <img src="${logoSrc}" alt="Maya A Sharma Financial logo" width="220" height="56">
         </a>
         <nav class="nav-desktop" aria-label="Primary">
-          ${nav.map((item) => `<a class="nav-link${activeClass(item.key)}" href="${item.href}">${item.label}</a>`).join("")}
+          ${nav.map((item) => `<a class="nav-link${activeClass(item.key)}" data-key="${item.key}" href="${item.href}">${item.label}</a>`).join("")}
         </nav>
         <div class="header-actions">
-          <div class="header-contact">
-            <a class="header-contact-link" href="tel:+919831352591" title="Call Maya Sharma">
-              <i class="bi bi-telephone-fill"></i>
-              <span>+91-9831352591</span>
-            </a>
-            <span class="header-contact-sep" aria-hidden="true">|</span>
-            <a class="header-contact-link" href="mailto:info@mayasharmafinancials.in" title="Email Maya Sharma">
-              <i class="bi bi-envelope-fill"></i>
-              <span>info@mayasharmafinancials.in</span>
-            </a>
-          </div>
-          <a class="btn-ms btn-gold btn-enroll" href="programs.html#programs">Enroll Now</a>
+          <a class="header-call" href="tel:+919831352591" title="Call Maya A Sharma">
+            <span class="header-call-icon"><i class="bi bi-telephone-fill"></i></span>
+            <span class="header-call-text"><small>Call us</small><strong>+91-9831352591</strong></span>
+          </a>
+          <a class="btn-ms btn-gold btn-enroll" href="contact.html#enquiry-form">Enroll Now</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -87,13 +52,15 @@
     </header>
     <div class="mobile-nav" id="mobileNav" hidden>
       <div class="mobile-nav-top">
-        <a class="brand-logo" href="index.html" aria-label="Maya Sharma home">
-          <img src="${logoSrc}" alt="Maya Sharma Financial logo" width="180" height="46">
+        <a class="brand-logo" href="index.html" aria-label="Maya A Sharma home">
+          <img src="${logoSrc}" alt="Maya A Sharma Financial logo" width="180" height="46">
         </a>
-        <button class="mobile-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
       </div>
       <nav class="mobile-nav-links" aria-label="Mobile primary navigation">
-        ${nav.map((item) => `<a class="mobile-nav-link${activeClass(item.key)}" href="${item.href}">${item.label}</a>`).join("")}
+        ${nav.map((item) => `<a class="mobile-nav-link${activeClass(item.key)}" data-key="${item.key}" href="${item.href}">${item.label}</a>`).join("")}
       </nav>
       <div class="mobile-nav-contact">
         <a class="mobile-contact-link" href="tel:+919831352591">
@@ -106,14 +73,13 @@
         </a>
       </div>
       <div class="mobile-nav-cta">
-        <a class="btn-ms btn-gold w-100" href="programs.html#programs">Enroll Now</a>
+        <a class="btn-ms btn-gold w-100" href="contact.html#enquiry-form">Enroll Now</a>
       </div>
     </div>
   `;
 
   const ticker = `
-    <div class="market-ticker" role="region" aria-label="Live market ticker, demo data">
-      <div class="ticker-label">LIVE MARKET</div>
+    <div class="market-ticker" role="region" aria-label="Market ticker, demo data">
       <div class="ticker-track-wrap">
         <div class="ticker-track" id="tickerTrack"></div>
       </div>
@@ -122,14 +88,28 @@
 
   const footer = `
     <footer class="site-footer">
-      <div class="container-ms footer-grid">
+      <div class="container-ms ft-cta">
+        <div>
+          <p class="ft-cta-eyebrow">Learn Earn Invest</p>
+          <h2>Start your financial journey <span>with Maya A Sharma.</span></h2>
+        </div>
+        <div class="ft-cta-actions">
+          <a class="ft-btn ft-btn-gold" href="contact.html#enquiry-form">Book Free Consultation <i class="bi bi-arrow-right"></i></a>
+          <a class="ft-btn ft-btn-ghost" href="https://wa.me/919831352591" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp Us</a>
+        </div>
+      </div>
+      <div class="container-ms footer-grid ft-grid">
         <div class="footer-brand">
           <a class="footer-logo-link" href="index.html">
-            <img src="${logoSrc}" alt="Maya Sharma Financials Logo" class="footer-logo-img">
+            <img src="${logoSrc}" alt="Maya A Sharma Financials Logo" class="footer-logo-img">
           </a>
-          <strong>MAYA SHARMA</strong>
-          <p>Financial Educator · Investor · TEDx Speaker</p>
+          <strong>MAYA A SHARMA</strong>
           <p>Making financial education simple, practical and accessible.</p>
+          <ul class="ft-contact">
+            <li><i class="bi bi-telephone"></i><a href="tel:+919831352591">+91-9831352591</a></li>
+            <li><i class="bi bi-envelope"></i><a href="mailto:info@mayasharmafinancials.in">info@mayasharmafinancials.in</a></li>
+            <li><i class="bi bi-geo-alt"></i><span>2nd floor 2A, 450, SN Roy Rd, Sahapur, New Alipore, Kolkata 700038</span></li>
+          </ul>
           <div class="socials">
             <a href="https://www.linkedin.com/in/maya-sharma-financial-coach" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
             <a href="https://www.instagram.com/msfinancials_" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
@@ -139,7 +119,7 @@
         </div>
         <div>
           <h3>Explore</h3>
-          <p><a href="about.html">About</a></p>
+          <p><a href="index.html#about">About</a></p>
           <p><a href="programs.html">Programs</a></p>
           <p><a href="programs.html#certifications">Certifications</a></p>
           <p><a href="success-stories.html">Success Stories</a></p>
@@ -149,50 +129,49 @@
         <div>
           <h3>Resources</h3>
           <p><a href="calculators.html">Calculators</a></p>
-          <p><a href="programs.html#faq">FAQ</a></p>
+          <p><a href="success-stories.html#faq">FAQ</a></p>
           <p><a href="gallery.html">Gallery</a></p>
         </div>
-        <div>
-          <h3>Connect</h3>
-          <p><a href="tel:+919831352591">+91-9831352591</a></p>
-          <p><a href="mailto:info@mayasharmafinancials.in">info@mayasharmafinancials.in</a></p>
-          <p>2nd floor 2A, 450, SN Roy Rd, Sahapur, New Alipore, Kolkata, West Bengal 700038</p>
+        <div class="ft-form-col">
+          <h3>Get in touch</h3>
+          <p class="ft-form-sub">Leave your details and our team will call you back.</p>
+          <form class="ft-form" id="footerEnquiry" novalidate>
+            <input type="text" name="name" autocomplete="name" placeholder="Full name *" aria-label="Full name" required>
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Phone number *" aria-label="Phone number" pattern="[0-9+ ()-]{8,}" required>
+            <input type="email" name="email" autocomplete="email" placeholder="Email address" aria-label="Email address">
+            <select name="interest" aria-label="Interested in">
+              <option value="" selected disabled>Interested in</option>
+              <option>Financial Literacy Foundation</option>
+              <option>Stock Market Essentials</option>
+              <option>Wealth Creation Masterclass</option>
+              <option>Women Investor Program</option>
+              <option>Free Consultation</option>
+            </select>
+            <button type="submit">Send <i class="bi bi-arrow-right"></i></button>
+          </form>
         </div>
       </div>
       <div class="container-ms footer-bottom">
-        <span>© 2026 Maya Sharma. All Rights Reserved.</span>
-        <span>
-          <a href="privacy.html">Privacy Policy</a> ·
+        <span>© 2026 Maya A Sharma · MS Financials. All Rights Reserved.</span>
+        <span class="ft-legal">
+          <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms &amp; Conditions</a>
         </span>
       </div>
+      <div class="ft-watermark" aria-hidden="true">LEARN EARN INVEST</div>
     </footer>
-    <div class="floating-socials" aria-label="Social media links">
-      <a class="floating-social-link social-linkedin" href="https://www.linkedin.com/in/maya-sharma-financial-coach" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
-        <i class="bi bi-linkedin"></i>
-      </a>
-      <a class="floating-social-link social-instagram" href="https://www.instagram.com/msfinancials_" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a class="floating-social-link social-youtube" href="https://www.youtube.com/@msfinancial" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener">
-        <i class="bi bi-youtube"></i>
-      </a>
-      <a class="floating-social-link social-facebook" href="https://www.facebook.com/MSFinancials2008" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener">
-        <i class="bi bi-facebook"></i>
-      </a>
-    </div>
     <div class="fab-stack" aria-label="Direct contact">
-      <a class="fab fab-wa" href="https://wa.me/919831352591" aria-label="WhatsApp Maya Sharma" title="WhatsApp" target="_blank" rel="noopener">
+      <a class="fab fab-wa" href="https://wa.me/919831352591" aria-label="WhatsApp Maya A Sharma" title="WhatsApp" target="_blank" rel="noopener">
         <i class="bi bi-whatsapp"></i>
       </a>
-      <a class="fab fab-call" href="tel:+919831352591" aria-label="Call Maya Sharma" title="Call">
+      <a class="fab fab-call" href="tel:+919831352591" aria-label="Call Maya A Sharma" title="Call">
         <i class="bi bi-telephone"></i>
       </a>
     </div>
     <nav class="mobile-cta-bar" aria-label="Quick actions">
       <a href="https://wa.me/919831352591" target="_blank" rel="noopener">WhatsApp</a>
       <a href="tel:+919831352591">Call</a>
-      <a class="enroll" href="programs.html#programs">Enroll Now</a>
+      <a class="enroll" href="contact.html#enquiry-form">Enroll Now</a>
     </nav>
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
       <div class="lightbox-inner">
@@ -214,6 +193,28 @@
   if (tickerMount) tickerMount.innerHTML = ticker;
   if (headerMount) headerMount.innerHTML = header;
   if (footerMount) footerMount.innerHTML = footer;
+
+  // Footer enquiry: no backend, so hand the details to WhatsApp as a ready-to-send message.
+  const footerForm = document.getElementById("footerEnquiry");
+  if (footerForm) {
+    footerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!footerForm.checkValidity()) {
+        footerForm.reportValidity();
+        return;
+      }
+      const data = new FormData(footerForm);
+      const text = [
+        "Hello Maya ji, I'd like to know more.",
+        "Name: " + data.get("name").trim(),
+        "Phone: " + data.get("phone").trim(),
+        data.get("email").trim() ? "Email: " + data.get("email").trim() : "",
+        data.get("interest") ? "Interested in: " + data.get("interest") : "",
+      ].filter(Boolean).join("\n");
+      window.open("https://wa.me/919831352591?text=" + encodeURIComponent(text), "_blank", "noopener");
+      footerForm.reset();
+    });
+  }
 
   const headerEl = document.getElementById("siteHeader");
   const logoImg = headerEl && headerEl.querySelector(".brand-logo img");
@@ -252,6 +253,65 @@
   if (mobileClose) mobileClose.addEventListener("click", closeMenu);
   if (mobileNav) {
     mobileNav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+  }
+
+  // Section links (e.g. index.html#about) scroll smoothly and keep the "#" out of the address bar.
+  function headerOffset() {
+    const header = document.getElementById("siteHeader");
+    const ticker = document.querySelector(".market-ticker");
+    return (header ? header.offsetHeight : 0) + (ticker ? ticker.offsetHeight : 0) + 12;
+  }
+
+  function scrollToSection(id, smooth) {
+    const target = id && document.getElementById(id);
+    if (!target) return false;
+    // Reveal it first so its fade-in offset doesn't skew the scroll position.
+    if (target.classList.contains("scroll-reveal")) target.classList.add("is-visible");
+    const shift = new DOMMatrix(getComputedStyle(target).transform).m42 || 0;
+    const top = target.getBoundingClientRect().top - shift + window.scrollY - headerOffset();
+    window.scrollTo({ top, behavior: smooth ? "smooth" : "auto" });
+    target.classList.add("is-target");
+    setTimeout(() => target.classList.remove("is-target"), 2600);
+    return true;
+  }
+
+  function cleanUrl() {
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a[href*='#']");
+    if (!link) return;
+    const url = new URL(link.getAttribute("href"), window.location.href);
+    if (url.pathname !== window.location.pathname || !url.hash) return;
+    if (scrollToSection(decodeURIComponent(url.hash.slice(1)), true)) {
+      e.preventDefault();
+      cleanUrl();
+    }
+  });
+
+  if (window.location.hash) {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    window.addEventListener("load", () => {
+      if (scrollToSection(id, false)) cleanUrl();
+    });
+  }
+
+  // On the home page, highlight "About" in the menu while the About sections are on screen.
+  if (isHome) {
+    const aboutIds = ["about", "journey", "awards", "tedx", "mission"];
+    const sections = aboutIds.map((id) => document.getElementById(id)).filter(Boolean);
+    const navLinks = document.querySelectorAll(".nav-link[data-key], .mobile-nav-link[data-key]");
+    const setActive = (key) => navLinks.forEach((a) => a.classList.toggle("active", a.dataset.key === key));
+    const spy = () => {
+      const y = window.scrollY + headerOffset() + 80;
+      const inAbout = sections.some((s) => y >= s.offsetTop && y < s.offsetTop + s.offsetHeight);
+      setActive(inAbout ? "about" : "home");
+    };
+    window.addEventListener("scroll", spy, { passive: true });
+    spy();
   }
 
   window.MSLightbox = (function () {
@@ -323,6 +383,11 @@
       if (action === "close") close();
       if (action === "next") next();
       if (action === "prev") prev();
+    });
+
+    // Clicking the dark backdrop (outside the photo/video) also closes it.
+    box.addEventListener("click", (e) => {
+      if (e.target === box || e.target.classList.contains("lightbox-inner")) close();
     });
 
     document.addEventListener("keydown", (e) => {

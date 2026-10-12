@@ -203,8 +203,11 @@
           }]
         },
         options: {
-          plugins: { legend: { position: "bottom" } },
-          cutout: "68%"
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 1,
+          plugins: { legend: { position: "bottom", labels: { boxWidth: 12, boxHeight: 12, padding: 16, font: { size: 13 } } } },
+          cutout: "70%"
         }
       });
     }
@@ -228,6 +231,19 @@
       const result = calculators[id].compute(readInputs(form));
       renderResult(out, result);
     };
+
+    // Show each slider's current value next to its label.
+    form.querySelectorAll('input[type="range"]').forEach((range) => {
+      const label = form.querySelector('label[for="' + range.id + '"]');
+      if (!label) return;
+      const out = document.createElement("output");
+      out.className = "range-val";
+      label.appendChild(out);
+      const unit = /%/.test(label.textContent) ? "%" : /year/i.test(label.textContent) ? " yrs" : "";
+      const sync = () => { out.textContent = range.value + unit; };
+      range.addEventListener("input", sync);
+      sync();
+    });
 
     form.addEventListener("input", run);
     run();

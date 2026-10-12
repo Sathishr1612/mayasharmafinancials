@@ -1,43 +1,148 @@
+/**
+ * Maya Sharma Financials - Luxury Motion Engine (50 Lacs / Figma Designer Grade)
+ * Silky scroll reveals, directional left/right transitions, 3D card tilt & parallax.
+ */
 (function () {
-  const hero = document.querySelector(".hero");
-  if (hero) requestAnimationFrame(() => hero.classList.add("is-ready"));
+  "use strict";
 
-  const reveals = document.querySelectorAll(".reveal");
-  if (reveals.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-in");
-          io.unobserve(entry.target);
+  // 1. Initialise Hero animations immediately
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    requestAnimationFrame(() => {
+      hero.classList.add("is-ready");
+    });
+  }
+
+  // 2. High-Performance Intersection Observer for Scroll Reveals
+  const revealSelector = ".scroll-reveal, .reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-left-soft, .reveal-right-soft, .img-reveal";
+  const reveals = document.querySelectorAll(revealSelector);
+
+  if (reveals.length > 0) {
+    // Check elements already in or near viewport on initial load to avoid flash
+    const checkImmediate = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      reveals.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= vh * 0.95 && rect.bottom >= 0) {
+          el.classList.add("is-visible", "is-in");
         }
       });
-    }, { threshold: 0.16 });
-    reveals.forEach((el) => io.observe(el));
+    };
+    checkImmediate();
+
+    const io = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            el.classList.add("is-visible", "is-in");
+            observer.unobserve(el);
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.08
+      }
+    );
+
+    reveals.forEach((el) => {
+      if (!el.classList.contains("is-visible")) {
+        io.observe(el);
+      }
+    });
   }
 
+  // 3. Animated Metric Counters
   const counters = document.querySelectorAll("[data-count]");
   if (counters.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const end = Number(el.dataset.count);
-        const suffix = el.dataset.suffix || "";
-        const duration = 1400;
-        const start = performance.now();
-        const tick = (now) => {
-          const p = Math.min(1, (now - start) / duration);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(end * eased).toLocaleString("en-IN") + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        io.unobserve(el);
-      });
-    }, { threshold: 0.4 });
-    counters.forEach((el) => io.observe(el));
+    const counterObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const end = el.dataset.since
+            ? new Date().getFullYear() - Number(el.dataset.since)
+            : Number(el.dataset.count);
+          const suffix = el.dataset.suffix || "";
+          const duration = 1600;
+          const start = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min(1, (now - start) / duration);
+            // Ultra-smooth quintic ease-out curve
+            const eased = 1 - Math.pow(1 - progress, 5);
+            el.textContent = Math.round(end * eased).toLocaleString("en-IN") + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          };
+
+          requestAnimationFrame(tick);
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.3 }
+    );
+    counters.forEach((el) => counterObserver.observe(el));
   }
 
+  // 4. Interactive 3D Card Tilt & Mouse Spotlight (Figma Prototype feel)
+  // Only enabled for desktop pointer devices to preserve smooth touch experience on mobile
+  const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (supportsFinePointer && !prefersReducedMotion) {
+    const tiltElements = document.querySelectorAll(".lw-photo, .pg-item, .cs-card, .wh-arch, .jb-cards li");
+
+    tiltElements.forEach((card) => {
+      let isHovered = false;
+      let targetRotX = 0;
+      let targetRotY = 0;
+      let curRotX = 0;
+      let curRotY = 0;
+      let rafId = null;
+
+      const animateTilt = () => {
+        // Soft spring damping
+        curRotX += (targetRotX - curRotX) * 0.12;
+        curRotY += (targetRotY - curRotY) * 0.12;
+
+        if (isHovered || Math.abs(curRotX) > 0.05 || Math.abs(curRotY) > 0.05) {
+          card.style.transform = `perspective(1000px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) translate3d(0, ${isHovered ? "-10px" : "0px"}, 0)`;
+          rafId = requestAnimationFrame(animateTilt);
+        } else {
+          card.style.transform = "";
+          rafId = null;
+        }
+      };
+
+      card.addEventListener("mouseenter", () => {
+        isHovered = true;
+        if (!rafId) rafId = requestAnimationFrame(animateTilt);
+      });
+
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Subtle, elegant 3D tilt angles (max +/- 6 deg)
+        targetRotX = ((centerY - y) / centerY) * 5.5;
+        targetRotY = ((x - centerX) / centerX) * 5.5;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        isHovered = false;
+        targetRotX = 0;
+        targetRotY = 0;
+      });
+    });
+  }
+
+  // 5. Timeline Progress Scroll
   const timeline = document.querySelector(".timeline");
   const progress = document.querySelector(".timeline-progress");
   if (timeline && progress) {
@@ -53,7 +158,24 @@
     update();
   }
 
-  if (window.gsap && window.ScrollTrigger) {
+  // 6. GSAP ScrollTrigger Integration for Parallax Depth
+  if (window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     gsap.registerPlugin(ScrollTrigger);
+
+    // Parallax on TEDx video stage image
+    const tcImg = document.querySelector(".tc-video img");
+    if (tcImg) {
+      gsap.to(tcImg, {
+        y: "8%",
+        scale: 1.05,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".tc-video",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1.5
+        }
+      });
+    }
   }
 })();

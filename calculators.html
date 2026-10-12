@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Financial Calculators — Maya Sharma</title>
-  <meta name="description" content="Ten educational financial calculators for SIP, goal planning, retirement, trading and loans. Illustrative only — not financial advice.">
+  <title>Financial Calculators | Maya A Sharma</title>
+  <meta name="description" content="Ten educational financial calculators for SIP, goal planning, retirement, trading and loans. Illustrative only. not financial advice.">
   <link rel="canonical" href="https://www.example.com/calculators.html">
-  <meta property="og:title" content="Financial Calculators — Maya Sharma">
+  <meta property="og:title" content="Financial Calculators | Maya A Sharma">
   <meta property="og:description" content="Educational calculators for investing, retirement, trading and loans.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css?v=20261012">
 </head>
 <body data-page="calculators">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,11 +26,15 @@
   <div id="header-root"></div>
   <main id="main">
     <header class="page-hero">
-      <div class="gold-arc" style="width:320px;height:320px;right:-60px;top:-80px;" aria-hidden="true"></div>
+      <span class="ph-orb ph-orb-1" aria-hidden="true"></span>
+      <span class="ph-orb ph-orb-2" aria-hidden="true"></span>
       <div class="container-ms">
-        <p class="eyebrow">Tools</p>
-        <h1>Financial Calculators</h1>
-        <p>Ten educational calculators for investing, retirement, trading and loans. Illustrative only — not financial advice.</p>
+        <p class="eyebrow">Financial Calculators</p>
+        <h1>Calculate Your Future Wealth</h1>
+        <p class="ph-lead">Estimate your investment growth and plan your financial goals with confidence. Calculations are illustrative estimates for educational purposes only.</p>
+        <div class="ph-actions">
+          <a class="btn-ms btn-gold" href="#calculators">Start with SIP Calculator <i class="bi bi-arrow-down"></i></a>
+        </div>
       </div>
     </header>
 
@@ -63,7 +68,7 @@
                 </form>
                 <div>
                   <div class="calc-stats" data-result></div>
-                  <canvas id="sipChart" height="180" aria-label="Investment versus returns chart"></canvas>
+                  <div class="calc-chart"><canvas id="sipChart" aria-label="Investment versus returns chart"></canvas></div>
                 </div>
               </div>
               <p class="calc-note">Assumes a constant rate of return for illustration. Actual results can be higher or lower. Not a guarantee.</p>
@@ -99,7 +104,7 @@
                 <div class="field"><label>Expected return (% p.a.)</label><input data-k="rate" type="number" value="8"></div>
               </form>
               <div class="calc-stats" data-result></div>
-              <p class="calc-note">Duration is a mathematical estimate. Capital can deplete faster in real markets.</p>
+              <p class="calc-note">Duration is a mathematical estimate. Capital can deplete faster in practice.</p>
             </div>
 
             <div class="calc-panel" id="calc-lumpsum" data-calc="lumpsum">
@@ -173,16 +178,6 @@
       </div>
     </section>
 
-    <section class="final-cta">
-      <div class="gold-arc" aria-hidden="true"></div>
-      <div class="container-ms">
-        <h2>Ready to start learning?</h2>
-        <div class="actions">
-          <a class="btn-ms btn-gold" href="programs.html">Explore Programs</a>
-          <a class="btn-ms btn-ghost" href="contact.html">Book Free Consultation</a>
-        </div>
-      </div>
-    </section>
   </main>
   <div id="footer-root"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

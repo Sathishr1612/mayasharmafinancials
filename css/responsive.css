@@ -233,9 +233,9 @@
   }
 
   .tedx-block .play-btn {
-    width: 58px;
-    height: 58px;
-    font-size: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
   }
 
   .brand-logo img {
@@ -465,9 +465,9 @@
   }
 
   .tedx-block .play-btn {
-    width: 52px;
-    height: 52px;
-    font-size: 18px;
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
   }
 
   .floating-socials {
@@ -497,5 +497,15 @@
 @media (min-width: 1920px) {
   :root {
     --container: 1320px;
+  }
+}
+@media (max-width: 575.98px) {
+  .float-name {
+    left: -18px;
+    bottom: 4%;
+  }
+
+  .mission-band {
+    padding: 40px 0;
   }
 }
