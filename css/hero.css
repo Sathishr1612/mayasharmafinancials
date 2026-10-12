@@ -636,26 +636,62 @@
 
 @media (max-width: 991px) {
   .hs-controls {
-    justify-content: center;
-    bottom: 24px;
+    position: absolute;
+    top: 230px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 6;
+  }
+
+  .hs-controls .hs-arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
   }
 
   .hs-controls .hs-arrows button {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    pointer-events: auto;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(252, 201, 5, 0.4);
+    background: rgba(11, 16, 45, 0.75);
+    color: var(--gold);
+    font-size: 19px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+  }
+
+  .hs-controls .hs-arrows button:active {
+    background: var(--gold);
+    color: #070B21;
+    transform: scale(0.92);
   }
 }
 
 @media (max-width: 575.98px) {
   .hs-controls {
-    bottom: 18px;
+    top: 170px;
+    padding: 0 14px !important;
   }
 
   .hs-controls .hs-arrows button {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
   }
 }
 

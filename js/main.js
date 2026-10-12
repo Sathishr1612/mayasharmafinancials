@@ -212,6 +212,29 @@
     if (prev) prev.addEventListener("click", () => { show(index - 1); start(); });
     if (next) next.addEventListener("click", () => { show(index + 1); start(); });
 
+    // Mobile touch swipe gestures
+    let touchStartX = 0;
+    let touchStartY = 0;
+    hero.addEventListener("touchstart", (e) => {
+      if (!e.touches.length) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    hero.addEventListener("touchend", (e) => {
+      if (!e.changedTouches.length) return;
+      const diffX = e.changedTouches[0].clientX - touchStartX;
+      const diffY = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          show(index + 1);
+        } else {
+          show(index - 1);
+        }
+        start();
+      }
+    }, { passive: true });
+
     // Pause while the tab is hidden so slides don't race when it comes back
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
