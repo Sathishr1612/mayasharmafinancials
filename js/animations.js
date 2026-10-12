@@ -22,6 +22,8 @@
     const checkImmediate = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight;
       reveals.forEach((el) => {
+        // Elements in the impact section should reveal dynamically on scroll
+        if (window.scrollY < 40 && el.closest(".impact")) return;
         const rect = el.getBoundingClientRect();
         if (rect.top <= vh * 0.95 && rect.bottom >= 0) {
           el.classList.add("is-visible", "is-in");
@@ -56,35 +58,68 @@
   // 3. Animated Metric Counters
   const counters = document.querySelectorAll("[data-count]");
   if (counters.length) {
+    const startCounter = (el, delay = 0) => {
+      if (el._hasAnimated) return;
+      el._hasAnimated = true;
+      const end = el.dataset.since
+        ? new Date().getFullYear() - Number(el.dataset.since)
+        : Number(el.dataset.count);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1600;
+
+      setTimeout(() => {
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = Math.min(1, (now - start) / duration);
+          // Ultra-smooth quintic ease-out curve
+          const eased = 1 - Math.pow(1 - progress, 5);
+          el.textContent = Math.round(end * eased).toLocaleString("en-IN") + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(tick);
+          }
+        };
+        requestAnimationFrame(tick);
+      }, delay);
+    };
+
+    // Synchronize impact counters with the impact section reveal cascade
+    const impactPanel = document.querySelector(".impact-panel");
+    if (impactPanel) {
+      const impactObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const impactCounters = impactPanel.querySelectorAll("[data-count]");
+              impactCounters.forEach((el, index) => {
+                startCounter(el, 220 + index * 120);
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      );
+      impactObserver.observe(impactPanel);
+    }
+
     const counterObserver = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const el = entry.target;
-          const end = el.dataset.since
-            ? new Date().getFullYear() - Number(el.dataset.since)
-            : Number(el.dataset.count);
-          const suffix = el.dataset.suffix || "";
-          const duration = 1600;
-          const start = performance.now();
-
-          const tick = (now) => {
-            const progress = Math.min(1, (now - start) / duration);
-            // Ultra-smooth quintic ease-out curve
-            const eased = 1 - Math.pow(1 - progress, 5);
-            el.textContent = Math.round(end * eased).toLocaleString("en-IN") + suffix;
-            if (progress < 1) {
-              requestAnimationFrame(tick);
-            }
-          };
-
-          requestAnimationFrame(tick);
+          if (!el.closest(".impact-panel")) {
+            startCounter(el, 0);
+          }
           observer.unobserve(el);
         });
       },
       { threshold: 0.3 }
     );
-    counters.forEach((el) => counterObserver.observe(el));
+    counters.forEach((el) => {
+      if (!el.closest(".impact-panel")) {
+        counterObserver.observe(el);
+      }
+    });
   }
 
   // 4. Interactive 3D Card Tilt & Mouse Spotlight (Figma Prototype feel)

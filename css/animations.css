@@ -193,6 +193,114 @@
 .stagger-8 { transition-delay: 0.64s !important; }
 
 /* --------------------------------------------------------------------------
+   3B. IMPACT & MISSION SECTION - LUXURY SCROLL REVEAL & STAGGER MOTION
+   -------------------------------------------------------------------------- */
+.impact-panel.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 44px, 0) scale(0.975);
+  box-shadow: 0 10px 30px rgba(13, 19, 48, 0.08);
+  transition: opacity 1.15s var(--ease-luxury),
+              transform 1.15s var(--ease-luxury),
+              box-shadow 1.15s var(--ease-luxury);
+  will-change: opacity, transform, box-shadow;
+}
+
+.impact-panel.scroll-reveal.is-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  box-shadow: 0 40px 90px -10px rgba(13, 19, 48, 0.32),
+              0 0 60px -15px rgba(252, 201, 5, 0.22) !important;
+}
+
+.impact-panel .impact-mission.reveal-left {
+  opacity: 0;
+  transform: translate3d(-34px, 0, 0);
+  filter: blur(5px);
+  transition: opacity 1.05s var(--ease-luxury) 0.14s,
+              transform 1.05s var(--ease-luxury) 0.14s,
+              filter 1.05s var(--ease-luxury) 0.14s;
+  will-change: opacity, transform, filter;
+}
+
+.impact-panel.is-visible .impact-mission.reveal-left,
+.impact-panel .impact-mission.reveal-left.is-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+  filter: blur(0px) !important;
+}
+
+.impact-panel .impact-stats.reveal-right {
+  opacity: 0;
+  transform: translate3d(34px, 0, 0);
+  filter: blur(5px);
+  transition: opacity 1.05s var(--ease-luxury) 0.18s,
+              transform 1.05s var(--ease-luxury) 0.18s,
+              filter 1.05s var(--ease-luxury) 0.18s;
+  will-change: opacity, transform, filter;
+}
+
+.impact-panel.is-visible .impact-stats.reveal-right,
+.impact-panel .impact-stats.reveal-right.is-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+  filter: blur(0px) !important;
+}
+
+/* Individual Stat Cards Staggered Cascade */
+.impact-panel .impact-stat {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0) scale(0.96);
+  transition: opacity 0.85s var(--ease-luxury),
+              transform 0.85s var(--ease-luxury),
+              background-color 0.35s ease,
+              box-shadow 0.35s ease;
+  will-change: opacity, transform;
+}
+
+.impact-panel.is-visible .impact-stat {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.impact-panel.is-visible .impact-stat:nth-child(1) { transition-delay: 0.22s; }
+.impact-panel.is-visible .impact-stat:nth-child(2) { transition-delay: 0.34s; }
+.impact-panel.is-visible .impact-stat:nth-child(3) { transition-delay: 0.46s; }
+.impact-panel.is-visible .impact-stat:nth-child(4) { transition-delay: 0.58s; }
+
+/* Subtle Gold Gleam Pulse on "1 Crore" */
+.impact-panel.is-visible .impact-title span {
+  animation: goldGlowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes goldGlowPulse {
+  0% {
+    text-shadow: 0 0 0px rgba(252, 201, 5, 0);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(252, 201, 5, 0.45);
+  }
+}
+
+/* Elegant Desktop Hover Interaction */
+@media (hover: hover) and (pointer: fine) {
+  .impact-panel .impact-stat {
+    border-radius: 14px;
+    cursor: default;
+  }
+
+  .impact-panel .impact-stat:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    transform: translate3d(0, -3px, 0) scale(1.01) !important;
+  }
+
+  .impact-panel .impact-stat:hover .impact-num {
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(252, 201, 5, 0.4);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+}
+
+/* --------------------------------------------------------------------------
    4. CLASSROOM PHOTOS ("REAL LEARNERS. REAL ACHIEVEMENTS.")
    The signature photo gallery showcased in the user's view.
    -------------------------------------------------------------------------- */
