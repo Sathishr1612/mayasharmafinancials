@@ -5405,12 +5405,16 @@
    Inner page banners — real photo on the right, fading into the navy
    ========================================================================== */
 .page-hero {
-  min-height: 520px;
+  min-height: 490px;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--brand-navy-deep);
+  padding: 40px 0;
 }
 
-.page-hero>.container-ms {
+.page-hero > .container-ms {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 40px), var(--container));
@@ -5422,13 +5426,13 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 58%;
-  z-index: -1;
+  width: 56%;
+  z-index: 0;
   pointer-events: none;
-  background: var(--ph-img) var(--ph-pos, center 30%) / cover no-repeat;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%);
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 22%, #000 48%);
-  opacity: 0.9;
+  background: var(--ph-img) var(--ph-pos, center 15%) / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 15%, #000 36%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.4) 15%, #000 36%);
+  opacity: 0.95;
 }
 
 /* Bottom fade so the banner sits cleanly on the page */
@@ -5442,47 +5446,63 @@
 
 .page-hero h1,
 .page-hero .ph-lead {
-  max-width: 640px;
+  max-width: 580px;
 }
 
+@media (min-width: 992px) and (max-width: 1200px) {
+  .page-hero {
+    min-height: 460px;
+  }
+
+  .page-hero::after {
+    width: 52%;
+  }
+
+  .page-hero h1,
+  .page-hero .ph-lead {
+    max-width: 500px;
+  }
+}
+
+/* Individual page banner images and desktop focal positions */
 body[data-page="programs"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/maya-a-sharma-share-market-training.jpg");
-  --ph-pos: 45% 30%;
+  --ph-pos: 48% 20%;
 }
 
 body[data-page="stories"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/ms-financials-students-with-certificates.jpg");
-  --ph-pos: 60% 35%;
+  --ph-pos: 58% 20%;
 }
 
 body[data-page="blog"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-laptop-market-share-wall.jpg");
-  --ph-pos: 70% 30%;
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-blog-banner.jpg");
+  --ph-pos: 70% 18%;
 }
 
 body[data-page="contact"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/maya-a-sharma-at-office-desk.jpg");
-  --ph-pos: 55% 35%;
+  --ph-pos: 60% 32%;
 }
 
 body[data-page="gallery"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/maya-a-sharma-awards-and-certificates-wall.jpg");
-  --ph-pos: 30% 35%;
+  --ph-pos: 20% 28%;
 }
 
 body[data-page="calculators"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-laptop-trading-desk.jpg");
-  --ph-pos: 70% 30%;
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-rooftop-with-tablet.jpg");
+  --ph-pos: 78% 10%;
 }
 
 body[data-page="privacy"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/maya-a-sharma-financial-educator-desk.jpg");
-  --ph-pos: 55% 35%;
+  --ph-pos: 58% 22%;
 }
 
 body[data-page="terms"] .page-hero {
   --ph-img: url("../assets/images/maya-pro/maya-a-sharma-ms-financials-trading-room.jpg");
-  --ph-pos: 70% 30%;
+  --ph-pos: 68% 22%;
 }
 
 @media (max-width: 991px) {
@@ -5493,7 +5513,7 @@ body[data-page="terms"] .page-hero {
     overflow: hidden;
   }
 
-  .page-hero>.container-ms {
+  .page-hero > .container-ms {
     position: relative;
     z-index: 2;
   }
@@ -5506,12 +5526,12 @@ body[data-page="terms"] .page-hero {
     pointer-events: none;
     background-image:
       linear-gradient(180deg,
-        rgba(7, 11, 33, 0.28) 0%,
-        rgba(7, 11, 33, 0.56) 34%,
-        rgba(7, 11, 33, 0.78) 70%,
+        rgba(7, 11, 33, 0.32) 0%,
+        rgba(7, 11, 33, 0.58) 36%,
+        rgba(7, 11, 33, 0.82) 72%,
         var(--navy-dark) 100%),
       var(--ph-img);
-    background-position: center center, var(--ph-pos-mob, var(--ph-pos, center 22%));
+    background-position: center center, var(--ph-pos-mob, var(--ph-pos, center 18%));
     background-size: cover, cover;
     background-repeat: no-repeat, no-repeat;
     opacity: 0.96;
@@ -5534,35 +5554,35 @@ body[data-page="terms"] .page-hero {
   }
 
   body[data-page="programs"] .page-hero {
-    --ph-pos-mob: 48% 20%;
+    --ph-pos-mob: 48% 18%;
   }
 
   body[data-page="stories"] .page-hero {
-    --ph-pos-mob: 50% 25%;
+    --ph-pos-mob: 55% 18%;
   }
 
   body[data-page="blog"] .page-hero {
-    --ph-pos-mob: 60% 22%;
+    --ph-pos-mob: 68% 16%;
   }
 
   body[data-page="contact"] .page-hero {
-    --ph-pos-mob: 50% 22%;
+    --ph-pos-mob: 58% 28%;
   }
 
   body[data-page="gallery"] .page-hero {
-    --ph-pos-mob: 32% 25%;
+    --ph-pos-mob: 18% 22%;
   }
 
   body[data-page="calculators"] .page-hero {
-    --ph-pos-mob: 55% 25%;
+    --ph-pos-mob: 74% 12%;
   }
 
   body[data-page="privacy"] .page-hero {
-    --ph-pos-mob: 50% 22%;
+    --ph-pos-mob: 52% 20%;
   }
 
   body[data-page="terms"] .page-hero {
-    --ph-pos-mob: 60% 25%;
+    --ph-pos-mob: 62% 22%;
   }
 }
 
@@ -6369,31 +6389,13 @@ body[data-page="terms"] .page-hero {
   padding-bottom: 20px;
 }
 
-/* Inner banners: keep copy on the navy side, deeper fade behind the text */
+/* Inner banners: clean typography spacing */
 .page-hero h1 {
   max-width: 620px;
 }
 
 .page-hero .ph-lead {
   max-width: 560px;
-}
-
-@media (min-width: 992px) {
-  .page-hero::after {
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 30%, #000 60%);
-    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 30%, #000 60%);
-  }
-}
-
-/* Calculators: photo without on-screen figures */
-body[data-page="calculators"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-with-tablet-by-window.jpg");
-  --ph-pos: 50% 25%;
-}
-
-body[data-page="calculators"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-rooftop-with-tablet.jpg");
-  --ph-pos: 60% 35%;
 }
 
 /* Awards slider: every photo shown whole (no cropping), blurred copy fills the frame */
@@ -6512,10 +6514,6 @@ body[data-page="stories"] .cert-photos .ph-item {
   }
 }
 
-body[data-page="blog"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-blog-banner.jpg");
-  --ph-pos: 85% 30%;
-}
 
 /* Footer background: Maya on the city skyline, deep navy overlay keeps text crisp */
 .site-footer {
