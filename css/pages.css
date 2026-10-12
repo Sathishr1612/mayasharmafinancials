@@ -1210,20 +1210,45 @@
   box-shadow: var(--shadow-soft);
 }
 
+.faq-wrap .faq-item button {
+  cursor: pointer;
+}
+
+.faq-wrap .faq-item .faq-body {
+  max-height: 0;
+  overflow: hidden;
+  color: #475467;
+  font-size: 16px;
+  line-height: 1.65;
+  transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+
+.faq-wrap .faq-item.open .faq-body {
+  max-height: 300px;
+  padding-bottom: 24px;
+  opacity: 1;
+}
+
 .faq-wrap .faq-item button span {
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
   background: var(--off-white);
-  transition: transform 0.35s var(--ease), background 0.35s;
+  color: var(--brand-navy);
+  transition: transform 0.35s var(--ease), background 0.35s, color 0.35s;
 }
 
 .faq-wrap .faq-item.open button span {
   transform: rotate(45deg);
   background: var(--gold);
+  color: var(--brand-navy);
 }
 
 /* ---------- Video reviews (cleaner treatment) ---------- */

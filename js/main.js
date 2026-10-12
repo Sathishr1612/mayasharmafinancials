@@ -39,20 +39,45 @@
     });
   });
 
-  document.querySelectorAll(".faq-item").forEach((item) => {
-    const button = item.querySelector("button");
-    button.addEventListener("click", () => {
-      const open = item.classList.contains("open");
-      document.querySelectorAll(".faq-item").forEach((other) => {
-        other.classList.remove("open");
-        other.querySelector("button").setAttribute("aria-expanded", "false");
+  // FAQ Accordion
+  const faqWrap = document.querySelector(".faq-wrap");
+  if (faqWrap) {
+    const allItems = faqWrap.querySelectorAll(".faq-item");
+
+    // Ensure first item is open by default
+    if (allItems.length > 0 && !faqWrap.querySelector(".faq-item.open")) {
+      allItems[0].classList.add("open");
+      const b0 = allItems[0].querySelector("button");
+      if (b0) b0.setAttribute("aria-expanded", "true");
+    }
+
+    faqWrap.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      const item = btn.closest(".faq-item");
+      if (!item) return;
+
+      const isOpen = item.classList.contains("open");
+
+      // Close all other items
+      allItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove("open");
+          const b = other.querySelector("button");
+          if (b) b.setAttribute("aria-expanded", "false");
+        }
       });
-      if (!open) {
+
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      } else {
         item.classList.add("open");
-        button.setAttribute("aria-expanded", "true");
+        btn.setAttribute("aria-expanded", "true");
       }
     });
-  });
+  }
 
   const awardItems = [
     { title: "TEDx GPCET 2024", caption: "Talk on financial awareness and long-term wealth creation.", src: "assets/images/awards/awards-maya-gpect.jpg" },
