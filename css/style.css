@@ -2730,13 +2730,6 @@ input[type="range"] {
   margin-bottom: 48px;
 }
 
-.blog-cover {
-  aspect-ratio: 16 / 10;
-  border-radius: 20px;
-  background-image: url('file:///C:/Users/Admin/.gemini/antigravity-ide/brain/47fcc826-5c27-46a2-b7ca-58a81cd8259f/blog_feature_cover_1788169379470.jpg');
-  background-size: cover;
-  background-position: center;
-}
 
 .blog-grid {
   display: grid;

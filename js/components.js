@@ -112,7 +112,7 @@
           </ul>
           <div class="socials">
             <a href="https://www.linkedin.com/in/maya-sharma-financial-coach" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.instagram.com/msfinancials_" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.instagram.com/msfinancial_" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
             <a href="https://www.youtube.com/@msfinancial" aria-label="YouTube" target="_blank" rel="noopener"><i class="bi bi-youtube"></i></a>
             <a href="https://www.facebook.com/MSFinancials2008" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
           </div>
