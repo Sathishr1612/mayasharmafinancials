@@ -80,14 +80,14 @@
   }
 
   const awardItems = [
-    { title: "TEDx GPCET 2024", caption: "Talk on financial awareness and long-term wealth creation.", src: "assets/images/awards/awards-maya-gpect.jpg" },
-    { title: "TED Talk Mastery & Train The Trainer", caption: "Certification in public speaking and training.", src: "assets/images/awards/award-maya-sharma.jpg" },
-    { title: "Super Speaker 2000", caption: "Recognition of Excellence", src: "assets/images/awards/speaker-mayasharma.jpg" },
-    { title: "Zee Business Recognition", caption: "Media Recognition", src: "assets/images/awards/maya-awards-tedx.jpg" },
-    { title: "CAFÉ PEHCHAAN 5.0", caption: "Indcap Rising Star Award", src: "assets/images/awards/awards-mayasharma-suresh.jpg" },
-    { title: "Apni Pehchaan – Naari Sammaan", caption: "Women Empowerment Recognition", src: "assets/images/awards/maya-sharma.JPG" },
-    { title: "Financial Gurukul Certifications", caption: "Professional Certifications", src: "assets/images/awards/award-maya-education-reg.jpg" },
-    { title: "Winning Stree 2023", caption: "Strees of Excellence", src: "assets/images/awards/tedx-award-maya.JPG" }
+    { title: "TEDx GPCET 2024", caption: "Talk on financial awareness and long-term wealth creation.", src: "assets/images/awards/awards-maya-gpect.webp" },
+    { title: "TED Talk Mastery & Train The Trainer", caption: "Certification in public speaking and training.", src: "assets/images/awards/award-maya-sharma.webp" },
+    { title: "Super Speaker 2000", caption: "Recognition of Excellence", src: "assets/images/awards/speaker-mayasharma.webp" },
+    { title: "Zee Business Recognition", caption: "Media Recognition", src: "assets/images/awards/maya-awards-tedx.webp" },
+    { title: "CAFÉ PEHCHAAN 5.0", caption: "Indcap Rising Star Award", src: "assets/images/awards/awards-mayasharma-suresh.webp" },
+    { title: "Apni Pehchaan – Naari Sammaan", caption: "Women Empowerment Recognition", src: "assets/images/awards/maya-sharma.webp" },
+    { title: "Financial Gurukul Certifications", caption: "Professional Certifications", src: "assets/images/awards/award-maya-education-reg.webp" },
+    { title: "Winning Stree 2023", caption: "Strees of Excellence", src: "assets/images/awards/tedx-award-maya.webp" }
   ];
 
   document.querySelectorAll("[data-award]").forEach((el) => {

@@ -9,7 +9,6 @@
     { href: "programs.html#certifications", label: "Certifications", key: "certs" },
     { href: "success-stories.html", label: "Success Stories", key: "stories" },
     { href: "calculators.html", label: "Calculators", key: "calculators" },
-    { href: "blogs.html", label: "Blog", key: "blog" },
     { href: "contact.html", label: "Contact", key: "contact" }
   ];
 
@@ -25,7 +24,7 @@
     return map[page] === key ? " active" : "";
   }
 
-  const logoSrc = "assets/images/maya/maya-logo.png";
+  const logoSrc = "assets/images/maya/maya-logo.webp";
 
   const headerClass = isHome ? "site-header is-hero" : "site-header solid";
 
@@ -123,7 +122,6 @@
           <p><a href="programs.html">Programs</a></p>
           <p><a href="programs.html#certifications">Certifications</a></p>
           <p><a href="success-stories.html">Success Stories</a></p>
-          <p><a href="blogs.html">Blog</a></p>
           <p><a href="contact.html">Contact</a></p>
         </div>
         <div>

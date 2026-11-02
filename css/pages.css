@@ -3516,7 +3516,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: #0a1530 url("../assets/images/videos-bg.jpg") center / cover no-repeat;
+  background: #0a1530 url("../assets/images/videos-bg.webp") center / cover no-repeat;
 }
 
 #videos.video-section::before {
@@ -4042,7 +4042,7 @@
 .impact-panel {
   background:
     linear-gradient(90deg, rgba(13, 19, 48, 0.35) 0%, rgba(13, 19, 48, 0.7) 55%, rgba(13, 19, 48, 0.85) 100%),
-    url("../assets/images/awards/awards-bg.jpg") center 30% / cover no-repeat,
+    url("../assets/images/awards/awards-bg.webp") center 30% / cover no-repeat,
     var(--brand-navy-deep);
 }
 
@@ -5466,42 +5466,42 @@
 
 /* Individual page banner images and desktop focal positions */
 body[data-page="programs"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-share-market-training.jpg");
-  --ph-pos: 48% 20%;
+  --ph-img: url("../assets/images/maya-pro/hero-programs-chart-session.webp");
+  --ph-pos: 60% 45%;
 }
 
 body[data-page="stories"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/ms-financials-students-with-certificates.jpg");
+  --ph-img: url("../assets/images/maya-pro/ms-financials-students-with-certificates.webp");
   --ph-pos: 58% 20%;
 }
 
 body[data-page="blog"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-blog-banner.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-blog-banner.webp");
   --ph-pos: 70% 18%;
 }
 
 body[data-page="contact"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-at-office-desk.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-at-office-desk.webp");
   --ph-pos: 60% 32%;
 }
 
 body[data-page="gallery"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-awards-and-certificates-wall.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-awards-and-certificates-wall.webp");
   --ph-pos: 20% 28%;
 }
 
 body[data-page="calculators"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-rooftop-with-tablet.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-rooftop-with-tablet.webp");
   --ph-pos: 78% 10%;
 }
 
 body[data-page="privacy"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-financial-educator-desk.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-financial-educator-desk.webp");
   --ph-pos: 58% 22%;
 }
 
 body[data-page="terms"] .page-hero {
-  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-ms-financials-trading-room.jpg");
+  --ph-img: url("../assets/images/maya-pro/maya-a-sharma-ms-financials-trading-room.webp");
   --ph-pos: 68% 22%;
 }
 
@@ -5554,7 +5554,7 @@ body[data-page="terms"] .page-hero {
   }
 
   body[data-page="programs"] .page-hero {
-    --ph-pos-mob: 48% 18%;
+    --ph-pos-mob: 62% 45%;
   }
 
   body[data-page="stories"] .page-hero {
@@ -6447,7 +6447,7 @@ body[data-page="terms"] .page-hero {
 
 /* TEDx photo is near-square: show it whole, blurred copy fills the wide frame */
 .tc-video {
-  background: #000 url("../assets/images/tedx/maya-a-sharma-tedx-gpcet-stage.jpg") center / cover no-repeat;
+  background: #000 url("../assets/images/tedx/maya-a-sharma-tedx-gpcet-stage.webp") center / cover no-repeat;
 }
 
 .tc-video::before {
@@ -6519,7 +6519,7 @@ body[data-page="stories"] .cert-photos .ph-item {
 .site-footer {
   background:
     linear-gradient(180deg, rgba(10, 15, 40, 0.86) 0%, rgba(10, 15, 40, 0.93) 45%, #0a0f28 100%),
-    url("../assets/images/maya-pro/maya-a-sharma-open-arms-skyline.jpg") center 30% / cover no-repeat,
+    url("../assets/images/maya-pro/maya-a-sharma-open-arms-skyline.webp") center 30% / cover no-repeat,
     #0a0f28;
 }
 
@@ -6527,7 +6527,7 @@ body[data-page="stories"] .cert-photos .ph-item {
 .site-footer {
   background:
     linear-gradient(180deg, rgba(10, 15, 40, 0.94) 0%, rgba(10, 15, 40, 0.72) 55%, rgba(10, 15, 40, 0.88) 100%),
-    url("../assets/images/videos-bg.jpg") center bottom / cover no-repeat,
+    url("../assets/images/videos-bg.webp") center bottom / cover no-repeat,
     #0a0f28;
 }
 
@@ -7103,7 +7103,7 @@ body[data-page="stories"] .cert-photos .ph-item {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #070d24 url("../assets/images/backgrounds/women-program-bg.jpg") center right / cover no-repeat;
+  background: #070d24 url("../assets/images/backgrounds/women-program-bg.webp") center right / cover no-repeat;
   border-top: 1px solid rgba(252, 201, 5, 0.15);
   border-bottom: 1px solid rgba(252, 201, 5, 0.15);
 }
@@ -7510,5 +7510,26 @@ body {
     width: 92vw !important;
     height: auto !important;
     aspect-ratio: 16 / 9;
+  }
+}
+
+/* Header navigation — crisper type and even spacing */
+.nav-link,
+.site-header.is-scrolled .nav-link,
+.site-header.solid .nav-link {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.nav-link:not(.active):not(:hover) {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (min-width: 1321px) {
+  .nav-desktop {
+    gap: 30px;
   }
 }
