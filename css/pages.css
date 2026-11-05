@@ -7533,3 +7533,110 @@ body {
     gap: 30px;
   }
 }
+
+/* ==========================================================================
+   Students awards — swipeable photo carousel with arrow buttons
+   ========================================================================== */
+.sa-stage {
+  position: relative;
+}
+
+/* Arrows sit on the photos, vertically centred, so they're where the eye and thumb already are */
+.sa-arrow {
+  position: absolute;
+  top: calc(50% - 8px);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--brand-navy);
+  font-size: 20px;
+  box-shadow: 0 8px 24px rgba(11, 16, 45, 0.28);
+  cursor: pointer;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.sa-prev {
+  left: 14px;
+}
+
+.sa-next {
+  right: 14px;
+}
+
+.sa-arrow:hover {
+  background: var(--brand-navy);
+  color: var(--white);
+  transform: scale(1.06);
+}
+
+.sa-arrow.is-disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sa-swiper {
+  overflow: hidden;
+  padding: 14px 0 46px;
+  margin-bottom: -20px;
+}
+
+.sa-swiper .sa-photo {
+  width: auto;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--off-white);
+  box-shadow: 0 12px 28px rgba(19, 26, 62, 0.14);
+  transition: box-shadow 0.4s var(--ease);
+}
+
+.sa-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.sa-swiper .sa-photo:hover {
+  box-shadow: 0 20px 40px rgba(19, 26, 62, 0.24);
+}
+
+.sa-photo:hover img {
+  transform: scale(1.04);
+}
+
+.sa-photo:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .sa-swiper .sa-photo {
+    height: 260px;
+    border-radius: 12px;
+  }
+
+  .sa-arrow {
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 16px;
+  }
+
+  .sa-prev {
+    left: 8px;
+  }
+
+  .sa-next {
+    right: 8px;
+  }
+}

@@ -128,6 +128,32 @@
     });
   });
 
+  // Students awards carousel: every photo once, arrows + swipe
+  if (window.Swiper && document.querySelector(".sa-swiper")) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Advances one photo at a time and glides back to the first at the end (no duplicate slides)
+    const saSwiper = new Swiper(".sa-swiper", {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      speed: 900,
+      rewind: true,
+      grabCursor: true,
+      watchOverflow: true,
+      keyboard: { enabled: true },
+      autoplay: reduceMotion ? false : { delay: 3200, disableOnInteraction: false, pauseOnMouseEnter: true },
+      navigation: { prevEl: ".sa-prev", nextEl: ".sa-next", disabledClass: "is-disabled" },
+      breakpoints: { 0: { spaceBetween: 10 }, 768: { spaceBetween: 16 } }
+    });
+    // Only run while the carousel is on screen
+    if (saSwiper.autoplay && "IntersectionObserver" in window) {
+      saSwiper.autoplay.stop();
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) saSwiper.autoplay.start();
+        else saSwiper.autoplay.stop();
+      }, { threshold: 0.35 }).observe(document.querySelector(".sa-stage"));
+    }
+  }
+
   // Gallery filter buttons
   document.querySelectorAll("[data-filter]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -186,8 +212,20 @@
     let timer = null;
     hero.style.setProperty("--hs-duration", duration / 1000 + "s");
 
+    // Slides after the first keep their photo in data-src and fetch it just before it is shown,
+    // so the stacked hero photos don't all download at page load
+    const ensure = (i) => {
+      const img = slides[(i + slides.length) % slides.length].querySelector("img[data-src]");
+      if (!img) return;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    };
+    window.addEventListener("load", () => setTimeout(() => ensure(1), 800), { once: true });
+
     const show = (next) => {
       index = (next + slides.length) % slides.length;
+      ensure(index);
+      ensure(index + 1);
       slides.forEach((s, i) => s.classList.toggle("is-active", i === index));
       bars.forEach((b, i) => {
         b.classList.remove("is-active");
@@ -480,7 +518,12 @@
     const slides = awardsFlow.querySelectorAll(".af-slide");
     slides.forEach((s) => {
       const img = s.querySelector("img");
-      if (img) s.style.setProperty("--slide-bg", `url("${img.src}")`);
+      if (!img) return;
+      // Set the blurred backdrop only once the photo itself has loaded, so the CSS
+      // background never pulls every award image in before it is needed (keeps loading="lazy" effective)
+      const setBg = () => s.style.setProperty("--slide-bg", `url("${img.currentSrc || img.src}")`);
+      if (img.complete && img.naturalWidth) setBg();
+      else img.addEventListener("load", setBg, { once: true });
     });
 
     const caption = document.querySelector(".af-caption");
