@@ -6658,6 +6658,10 @@ body[data-page="stories"] .cert-photos .ph-item {
   transition: transform 0.9s var(--ease);
 }
 
+#corporate .wt-photo img {
+  object-position: center top;
+}
+
 .wt-card:hover .wt-photo img {
   transform: scale(1.04);
 }
@@ -7299,6 +7303,17 @@ body {
   aspect-ratio: 16 / 7;
 }
 
+@media (min-width: 992px) {
+  .vx-grid {
+    grid-auto-rows: 210px;
+  }
+
+  .vx-card,
+  .vx-wide {
+    aspect-ratio: auto;
+  }
+}
+
 .vx-media {
   position: absolute;
   inset: 0;
@@ -7545,4 +7560,10 @@ body {
   .sa-next {
     right: 8px;
   }
+}
+
+/* Footer watermark: normal letter spacing plus clear gaps between the three words */
+.ft-watermark {
+  letter-spacing: 0.01em;
+  word-spacing: 0.22em;
 }

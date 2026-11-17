@@ -118,6 +118,7 @@
         </div>
         <div>
           <h3>Explore</h3>
+          <p><a href="index.html">Home</a></p>
           <p><a href="index.html#about">About</a></p>
           <p><a href="programs.html">Programs</a></p>
           <p><a href="programs.html#certifications">Certifications</a></p>
@@ -310,6 +311,21 @@
     };
     window.addEventListener("scroll", spy, { passive: true });
     spy();
+  }
+
+  // On the programs page, "Programs" and "Certifications" share one page: highlight only the one in view.
+  if (page === "programs") {
+    const certs = document.getElementById("certifications");
+    const navLinks = document.querySelectorAll(".nav-link[data-key], .mobile-nav-link[data-key]");
+    if (certs) {
+      const spy = () => {
+        const y = window.scrollY + headerOffset() + 80;
+        const key = y >= certs.offsetTop ? "certs" : "programs";
+        navLinks.forEach((a) => a.classList.toggle("active", a.dataset.key === key));
+      };
+      window.addEventListener("scroll", spy, { passive: true });
+      spy();
+    }
   }
 
   window.MSLightbox = (function () {
